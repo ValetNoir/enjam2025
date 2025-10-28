@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://djcm1prlftyxe"]
+
+[ext_resource type="PackedScene" uid="uid://dirsc5es5llxs" path="res://scenes/base_mechanics/hold.tscn" id="1_rhbh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhbh6"]
+size = Vector2(378, 361)
+
+[node name="Arrosoir" type="Node"]
+
+[node name="Hold" parent="." instance=ExtResource("1_rhbh6")]
+
+[node name="CollisionShape2D" parent="Hold" index="0"]
+position = Vector2(596, 182.5)
+shape = SubResource("RectangleShape2D_rhbh6")
+
+[node name="Timer" parent="Hold" index="1"]
+wait_time = 5.0
+
+[editable path="Hold"]

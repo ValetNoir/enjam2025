@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ferd4yatx5ry"]
 
-[ext_resource type="Script" uid="uid://dff5ypit6p2rd" path="res://scripts/pattern.gd" id="1_hviu3"]
-[ext_resource type="Texture2D" uid="uid://chgswxgrfdo5d" path="res://icon.svg" id="2_6c1nw"]
+[ext_resource type="Script" uid="uid://dff5ypit6p2rd" path="res://scripts/pattern.gd" id="1_iranr"]
+[ext_resource type="Texture2D" uid="uid://chgswxgrfdo5d" path="res://icon.svg" id="2_lc2xr"]
 
 [sub_resource type="Curve2D" id="Curve2D_6c1nw"]
 bake_interval = 150.0
@@ -15,7 +15,7 @@ radius = 58.077545
 
 [node name="Pattern" type="Path2D"]
 curve = SubResource("Curve2D_6c1nw")
-script = ExtResource("1_hviu3")
+script = ExtResource("1_iranr")
 
 [node name="Pointer" type="PathFollow2D" parent="."]
 position = Vector2(384, 72)
@@ -29,7 +29,7 @@ shape = SubResource("CircleShape2D_p404m")
 [node name="Sprite2D" type="Sprite2D" parent="Pointer"]
 position = Vector2(0.35520172, 0.08021021)
 scale = Vector2(0.7677983, 0.77442247)
-texture = ExtResource("2_6c1nw")
+texture = ExtResource("2_lc2xr")
 
 [node name="Line2D" type="Line2D" parent="."]
 

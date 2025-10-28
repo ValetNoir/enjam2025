@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="plantplantcrunchcrunch"
+run/main_scene="uid://ferd4yatx5ry"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+run/size/viewport_width=1
+run/size/viewport_height=648
+
+[autoload]
+
+Data="*res://scripts/data.gd"
 
 [input]
 

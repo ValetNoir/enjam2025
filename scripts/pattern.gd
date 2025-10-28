@@ -11,6 +11,7 @@ var has_finished = false
 signal finished()
 
 func _ready() -> void:
+	curve.bake_interval = 150
 	points = curve.get_baked_points()
 	line_2d.points = points
 
