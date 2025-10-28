@@ -25,11 +25,13 @@ func _process(delta: float) -> void:
 
 func start() -> void:
 	started.emit()
+	is_active = true
 
 func stop() -> void:
 	stopped.emit()
 	timer.wait_time = reload_time + reload_time_variation * randf()
 	timer.start()
+	is_active = false
 	Data.plant_health += health_boost
 
 func _on_timer_timeout() -> void:
