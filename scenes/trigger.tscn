@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wlp0aaf4sfw1"]
+[gd_scene load_steps=3 format=3 uid="uid://wlp0aaf4sfw1"]
 
 [ext_resource type="Script" uid="uid://6u5mlf5makju" path="res://scripts/plantActivityTrigger.gd" id="1_du5ex"]
+[ext_resource type="Texture2D" uid="uid://chgswxgrfdo5d" path="res://art/icon.svg" id="2_7fap0"]
 
 [node name="Trigger" type="Area2D"]
 script = ExtResource("1_du5ex")
@@ -8,3 +9,8 @@ script = ExtResource("1_du5ex")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_7fap0")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

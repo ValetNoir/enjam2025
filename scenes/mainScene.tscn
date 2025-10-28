@@ -1,27 +1,119 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=22 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/perfusion-pleine.png" id="2_1jq6i"]
 [ext_resource type="Texture2D" uid="uid://cxhachq8bltmh" path="res://art/arosoir.png" id="3_1jq6i"]
 [ext_resource type="PackedScene" uid="uid://dpel28tagyukw" path="res://scenes/problem.tscn" id="3_twn0q"]
+[ext_resource type="Texture2D" uid="uid://c2t8sgc27awge" path="res://art/perfusion-vide.png" id="3_vdgl5"]
 [ext_resource type="PackedScene" uid="uid://wlp0aaf4sfw1" path="res://scenes/trigger.tscn" id="4_hhxvm"]
-[ext_resource type="PackedScene" uid="uid://ch3vuay0jj1wd" path="res://scenes/led.tscn" id="5_w16ng"]
+[ext_resource type="Texture2D" uid="uid://le6y7kk36yi6" path="res://art/bonnet.png" id="5_hnm5q"]
+[ext_resource type="Texture2D" uid="uid://dwwho8nw00ty2" path="res://art/chapelet.png" id="6_0eirs"]
+[ext_resource type="Texture2D" uid="uid://5hgtypeg1kk5" path="res://art/clavier.png" id="7_gg62s"]
+[ext_resource type="Texture2D" uid="uid://dxevplrxlaa0a" path="res://art/micro.png" id="8_f44mt"]
+[ext_resource type="Texture2D" uid="uid://cv3sefqppmq2o" path="res://art/pot-plante.png" id="9_1s0h2"]
+[ext_resource type="Texture2D" uid="uid://g36gsdrbb3u4" path="res://art/tartine.png" id="10_w72fx"]
+[ext_resource type="Texture2D" uid="uid://drv58v1ygo0kg" path="res://art/plante-top.png" id="11_ybfn7"]
+[ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/plante-mid.png" id="12_u2jin"]
+[ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/plante-morte.png" id="13_khoa4"]
+[ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
+[ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
+[ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x04a8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1jq6i")
+}],
+"loop": true,
+"name": &"pleine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vdgl5")
+}],
+"loop": true,
+"name": &"vide",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7hqw"]
+atlas = ExtResource("11_ybfn7")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tokr4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7hqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ybfn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u2jin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_khoa4")
+}],
+"loop": false,
+"name": &"die",
+"speed": 4.0
+}]
 
 [node name="MainScene" type="Node2D"]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Graphics" type="Node2D" parent="."]
 
-[node name="Background" type="Sprite2D" parent="Node2D"]
+[node name="Background" type="Sprite2D" parent="Graphics"]
+z_index = -1
 scale = Vector2(0.997971, 1.0018518)
 texture = ExtResource("1_w16ng")
 centered = false
 
-[node name="PerfusionPleine" type="Sprite2D" parent="Node2D"]
-texture = ExtResource("2_1jq6i")
+[node name="Perfusion" type="AnimatedSprite2D" parent="Graphics"]
+sprite_frames = SubResource("SpriteFrames_x04a8")
+animation = &"vide"
 centered = false
 
-[node name="Arosoir" type="Sprite2D" parent="Node2D"]
+[node name="Arrosoir" type="Sprite2D" parent="Graphics"]
 texture = ExtResource("3_1jq6i")
+centered = false
+
+[node name="Bonnet" type="Sprite2D" parent="Graphics"]
+texture = ExtResource("5_hnm5q")
+centered = false
+
+[node name="Chapelet" type="Sprite2D" parent="Graphics"]
+texture = ExtResource("6_0eirs")
+centered = false
+
+[node name="Clavier" type="Sprite2D" parent="Graphics"]
+texture = ExtResource("7_gg62s")
+centered = false
+
+[node name="Micro" type="Sprite2D" parent="Graphics"]
+texture = ExtResource("8_f44mt")
+centered = false
+
+[node name="PotPlante" type="Sprite2D" parent="Graphics"]
+z_index = 1
+texture = ExtResource("9_1s0h2")
+centered = false
+
+[node name="Tartine" type="Sprite2D" parent="Graphics"]
+texture = ExtResource("10_w72fx")
+centered = false
+
+[node name="PlanteTop" type="AnimatedSprite2D" parent="Graphics"]
+sprite_frames = SubResource("SpriteFrames_tokr4")
+autoplay = "default"
 centered = false
 
 [node name="Problems" type="Node" parent="."]
@@ -30,93 +122,104 @@ centered = false
 unlock_time = 5
 reload_time = 30
 
-[node name="LED" parent="Problems/Soif" instance=ExtResource("5_w16ng")]
-position = Vector2(1757, 370)
+[node name="LED" parent="Problems/Soif" index="1"]
+position = Vector2(862, 794)
 
 [node name="Triste" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 20
 reload_time = 30
 
-[node name="LED" parent="Problems/Triste" instance=ExtResource("5_w16ng")]
-position = Vector2(943, 785)
+[node name="LED" parent="Problems/Triste" index="1"]
+position = Vector2(928, 795)
 
 [node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 45
 reload_time = 30
 
-[node name="LED" parent="Problems/Froid" instance=ExtResource("5_w16ng")]
-position = Vector2(392, 891)
+[node name="LED" parent="Problems/Froid" index="1"]
+position = Vector2(994, 787)
 
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 60
 reload_time = 30
 
-[node name="LED" parent="Problems/Sombre" instance=ExtResource("5_w16ng")]
-position = Vector2(217, 446)
+[node name="LED" parent="Problems/Sombre" index="1"]
+position = Vector2(860, 869)
 
 [node name="Faible" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 75
 reload_time = 30
 
-[node name="LED" parent="Problems/Faible" instance=ExtResource("5_w16ng")]
-position = Vector2(1467, 1023)
+[node name="LED" parent="Problems/Faible" index="1"]
+position = Vector2(926, 864)
 
 [node name="Faim" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 90
 reload_time = 30
 
-[node name="LED" parent="Problems/Faim" instance=ExtResource("5_w16ng")]
-position = Vector2(243, 1047)
+[node name="LED" parent="Problems/Faim" index="1"]
+position = Vector2(998, 865)
 
 [node name="Triggers" type="Node" parent="."]
 
-[node name="Arrosoir" parent="Triggers" instance=ExtResource("4_hhxvm")]
+[node name="Arrosoir" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+position = Vector2(2, 5)
+linkedProblem = NodePath("../../Problems/Soif")
+linkedSolution = ExtResource("16_gg62s")
 
 [node name="CollisionPolygon2D" parent="Triggers/Arrosoir" index="0"]
-polygon = PackedVector2Array(1772, 74, 1634, 162, 1634, 423, 1761, 499, 1904, 422, 1907, 156)
+polygon = PackedVector2Array(1764, 119, 1615, 176, 1617, 396, 1745, 474, 1916, 421, 1912, 197)
 
-[node name="Clavier" parent="Triggers" instance=ExtResource("4_hhxvm")]
+[node name="Micro" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+position = Vector2(52.762115, 726.04285)
+linkedProblem = NodePath("../../Problems/Triste")
 
-[node name="CollisionPolygon2D" parent="Triggers/Clavier" index="0"]
-polygon = PackedVector2Array(524, 925, 357, 1006, 370, 1072, 813, 1073, 811, 1006, 744, 920)
+[node name="CollisionPolygon2D" parent="Triggers/Micro" index="0"]
+polygon = PackedVector2Array(1501.2379, 255.95715, 1409.2379, 179.95715, 1160.2379, 279.95715, 1168.2379, 350.95715, 1440.2379, 357.95715)
 
-[node name="Chapelet" parent="Triggers" instance=ExtResource("4_hhxvm")]
+[node name="Bonnet" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Froid")
+
+[node name="CollisionPolygon2D" parent="Triggers/Bonnet" index="0"]
+position = Vector2(1015, -14)
+polygon = PackedVector2Array(279, 756, 183, 810, 157, 939, 267, 970, 388, 927, 375, 790)
+
+[node name="Chapelet" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Sombre")
+linkedSolution = ExtResource("17_f44mt")
 
 [node name="CollisionPolygon2D" parent="Triggers/Chapelet" index="0"]
 position = Vector2(41, -512)
-polygon = PackedVector2Array(104, 749, 41, 796, 48, 1035, 104, 1109, 173, 1026, 173, 799)
+polygon = PackedVector2Array(110, 751, 41, 796, 48, 1035, 113, 1077, 173, 1026, 177, 796)
 
-[node name="Sang" parent="Triggers" instance=ExtResource("4_hhxvm")]
+[node name="Sang" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Faible")
 
 [node name="CollisionPolygon2D" parent="Triggers/Sang" index="0"]
-polygon = PackedVector2Array(1283, 899, 1143, 1039, 1182, 1076, 1395, 1078, 1505, 947)
+polygon = PackedVector2Array(415, 260, 416, 527, 604, 534, 613, 264)
 
-[node name="Bonnet" parent="Triggers" instance=ExtResource("4_hhxvm")]
-
-[node name="CollisionPolygon2D" parent="Triggers/Bonnet" index="0"]
-polygon = PackedVector2Array(279, 756, 175, 810, 157, 923, 264, 963, 395, 942, 378, 813)
-
-[node name="Tartine" parent="Triggers" instance=ExtResource("4_hhxvm")]
+[node name="Tartine" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Faim")
 
 [node name="CollisionPolygon2D" parent="Triggers/Tartine" index="0"]
-polygon = PackedVector2Array(156, 937, 79, 932, 6, 968, 8, 1025, 127, 1050, 231, 1023, 241, 976)
+polygon = PackedVector2Array(11, 948, 13, 1040, 239, 1043, 242, 953)
 
-[connection signal="started" from="Problems/Soif" to="Problems/Soif/LED" method="on"]
-[connection signal="stopped" from="Problems/Soif" to="Problems/Soif/LED" method="off"]
-[connection signal="started" from="Problems/Triste" to="Problems/Triste/LED" method="on"]
-[connection signal="stopped" from="Problems/Triste" to="Problems/Triste/LED" method="off"]
-[connection signal="started" from="Problems/Froid" to="Problems/Froid/LED" method="on"]
-[connection signal="stopped" from="Problems/Froid" to="Problems/Froid/LED" method="off"]
-[connection signal="started" from="Problems/Sombre" to="Problems/Sombre/LED" method="on"]
-[connection signal="stopped" from="Problems/Sombre" to="Problems/Sombre/LED" method="off"]
-[connection signal="started" from="Problems/Faible" to="Problems/Faible/LED" method="on"]
-[connection signal="stopped" from="Problems/Faible" to="Problems/Faible/LED" method="off"]
-[connection signal="started" from="Problems/Faim" to="Problems/Faim/LED" method="on"]
-[connection signal="stopped" from="Problems/Faim" to="Problems/Faim/LED" method="off"]
+[node name="Clavier" parent="Triggers" instance=ExtResource("4_hhxvm")]
+linkedSolution = ExtResource("18_1s0h2")
 
+[node name="CollisionPolygon2D" parent="Triggers/Clavier" index="0"]
+polygon = PackedVector2Array(450, 919, 357, 1006, 361, 1072, 813, 1073, 811, 1006, 744, 920)
+
+[editable path="Problems/Soif"]
+[editable path="Problems/Triste"]
+[editable path="Problems/Froid"]
+[editable path="Problems/Sombre"]
+[editable path="Problems/Faible"]
+[editable path="Problems/Faim"]
 [editable path="Triggers/Arrosoir"]
-[editable path="Triggers/Clavier"]
+[editable path="Triggers/Micro"]
+[editable path="Triggers/Bonnet"]
 [editable path="Triggers/Chapelet"]
 [editable path="Triggers/Sang"]
-[editable path="Triggers/Bonnet"]
 [editable path="Triggers/Tartine"]
+[editable path="Triggers/Clavier"]
