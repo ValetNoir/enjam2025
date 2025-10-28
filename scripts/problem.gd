@@ -8,7 +8,7 @@ extends Node
 @export var health_boost = 50
 @export var damage_per_second = 1
 
-var isActive = false
+var is_active = false
 
 signal started()
 signal stopped()
@@ -18,7 +18,7 @@ func _ready() -> void:
 	timer.start()
 
 func _process(delta: float) -> void:
-	if not isActive:
+	if not is_active:
 		return
 	
 	Data.plant_health -= damage_per_second * delta
