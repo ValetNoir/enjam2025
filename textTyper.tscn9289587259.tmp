@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://4dpskel2qhru"]
+
+[ext_resource type="Script" uid="uid://ys5wknolbgnj" path="res://textTyper.gd" id="1_3560m"]
+
+[node name="TextTyper" type="Node2D" node_paths=PackedStringArray("backgroundText", "typedText")]
+modulate = Color(0.29411766, 0.29411766, 0.29411766, 1)
+script = ExtResource("1_3560m")
+wordList = Array[String](["test", "test encore"])
+backgroundText = NodePath("backgroundText")
+typedText = NodePath("typedText")
+
+[node name="typedText" type="Label" parent="."]
+offset_right = 382.0
+offset_bottom = 204.0
+
+[node name="backgroundText" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
