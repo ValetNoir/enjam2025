@@ -14,11 +14,6 @@ func _ready() -> void:
 	pickWord()
 	
 	
-func _process(delta: float) -> void:
-	if selectedWord == "":
-		pickWord()
-	
-	
 func pickWord() -> void:
 	var temp = randi_range(0,wordList.size()-1)
 	selectedWord = wordList[temp]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=6 format=3 uid="uid://bsl0fyk1ux4ph"]
 
 [ext_resource type="Texture2D" uid="uid://8eamavqxeex6" path="res://art/plante.png" id="1_8ifl6"]
 [ext_resource type="Script" uid="uid://6u5mlf5makju" path="res://scripts/plantActivityTrigger.gd" id="2_twn0q"]
-[ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="3_hhxvm"]
+[ext_resource type="PackedScene" path="res://scenes/tools/priere.tscn" id="3_hhxvm"]
 [ext_resource type="PackedScene" uid="uid://dpel28tagyukw" path="res://scenes/problem.tscn" id="3_twn0q"]
+[ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/base_mechanics/computerTyping.tscn" id="4_w16ng"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -11,15 +12,6 @@
 position = Vector2(963.49994, 536.5001)
 scale = Vector2(3.1066065, 3.1186867)
 texture = ExtResource("1_8ifl6")
-
-[node name="plantActivityTrigger" type="Area2D" parent="." node_paths=PackedStringArray("linkedProblem")]
-script = ExtResource("2_twn0q")
-linkedProblem = NodePath("../Problems/Soif")
-linkedSolution = ExtResource("3_hhxvm")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="plantActivityTrigger"]
-position = Vector2(59, 544)
-polygon = PackedVector2Array(702, 400, 753, 517, 330, 511, 307, 468, 488, 390)
 
 [node name="Problems" type="Node" parent="."]
 
@@ -46,3 +38,59 @@ reload_time = 30
 [node name="Faim" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 90
 reload_time = 30
+
+[node name="Triggers" type="Node" parent="Problems"]
+
+[node name="plantActivityTrigger" type="Area2D" parent="Problems/Triggers" node_paths=PackedStringArray("linkedProblem")]
+script = ExtResource("2_twn0q")
+linkedProblem = NodePath("../../Triste")
+linkedSolution = ExtResource("4_w16ng")
+
+[node name="clavier" type="CollisionPolygon2D" parent="Problems/Triggers/plantActivityTrigger"]
+position = Vector2(59, 544)
+polygon = PackedVector2Array(702, 400, 753, 517, 330, 511, 307, 468, 488, 390)
+
+[node name="plantActivityTrigger2" type="Area2D" parent="Problems/Triggers" node_paths=PackedStringArray("linkedProblem")]
+script = ExtResource("2_twn0q")
+linkedProblem = NodePath("../../Sombre")
+linkedSolution = ExtResource("3_hhxvm")
+
+[node name="chapelet" type="CollisionPolygon2D" parent="Problems/Triggers/plantActivityTrigger2"]
+position = Vector2(-245, 12)
+polygon = PackedVector2Array(371, 569, 316, 340, 393, 184, 468, 327, 461, 488)
+
+[node name="plantActivityTrigger3" type="Area2D" parent="Problems/Triggers" node_paths=PackedStringArray("linkedProblem")]
+script = ExtResource("2_twn0q")
+linkedProblem = NodePath("../../Soif")
+linkedSolution = ExtResource("4_w16ng")
+
+[node name="arrosoir" type="CollisionPolygon2D" parent="Problems/Triggers/plantActivityTrigger3"]
+position = Vector2(-245, 12)
+polygon = PackedVector2Array(1943, 415, 1900, 175, 2018, 87, 2142, 224, 2125, 441)
+
+[node name="plantActivityTrigger4" type="Area2D" parent="Problems/Triggers" node_paths=PackedStringArray("linkedProblem")]
+script = ExtResource("2_twn0q")
+linkedProblem = NodePath("../../Faible")
+linkedSolution = ExtResource("3_hhxvm")
+
+[node name="sang" type="CollisionPolygon2D" parent="Problems/Triggers/plantActivityTrigger4"]
+position = Vector2(-691, 638)
+polygon = PackedVector2Array(1876, 391, 2005, 267, 2149, 314, 2020, 451)
+
+[node name="plantActivityTrigger5" type="Area2D" parent="Problems/Triggers" node_paths=PackedStringArray("linkedProblem")]
+script = ExtResource("2_twn0q")
+linkedProblem = NodePath("../../Froid")
+linkedSolution = ExtResource("3_hhxvm")
+
+[node name="bonnet" type="CollisionPolygon2D" parent="Problems/Triggers/plantActivityTrigger5"]
+position = Vector2(-1733, 512)
+polygon = PackedVector2Array(2123, 432, 1892, 432, 1952, 282, 2061, 282)
+
+[node name="plantActivityTrigger6" type="Area2D" parent="Problems/Triggers" node_paths=PackedStringArray("linkedProblem")]
+script = ExtResource("2_twn0q")
+linkedProblem = NodePath("../../Faim")
+linkedSolution = ExtResource("3_hhxvm")
+
+[node name="tartine" type="CollisionPolygon2D" parent="Problems/Triggers/plantActivityTrigger6"]
+position = Vector2(-1883, 608)
+polygon = PackedVector2Array(2127, 428, 1898, 424, 1904, 349, 1998, 339, 2092, 353)
