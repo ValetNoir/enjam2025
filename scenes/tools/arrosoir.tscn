@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://djcm1prlftyxe"]
+[gd_scene load_steps=4 format=3 uid="uid://djcm1prlftyxe"]
 
 [ext_resource type="PackedScene" uid="uid://dirsc5es5llxs" path="res://scenes/base_mechanics/hold.tscn" id="1_rhbh6"]
+[ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_xv733"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhbh6"]
 size = Vector2(688, 620.25)
 
 [node name="Arrosoir" type="Node"]
+script = ExtResource("1_xv733")
 
 [node name="Hold" parent="." instance=ExtResource("1_rhbh6")]
 
@@ -15,5 +17,7 @@ shape = SubResource("RectangleShape2D_rhbh6")
 
 [node name="Timer" parent="Hold" index="1"]
 wait_time = 5.0
+
+[connection signal="finished" from="Hold" to="." method="finish"]
 
 [editable path="Hold"]
