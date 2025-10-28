@@ -22,5 +22,7 @@ texture = ExtResource("2_lc2xr")
 
 [node name="Line2D" type="Line2D" parent="."]
 
+[node name="ColoredPattern" type="Line2D" parent="."]
+
 [connection signal="mouse_entered" from="Pointer/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Pointer/Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -2,6 +2,7 @@ extends Path2D
 
 @onready var pointer: PathFollow2D = $Pointer
 @onready var line_2d: Line2D = $Line2D
+@onready var colored_pattern: Line2D = $ColoredPattern
 
 var mouse_inside_area = false
 var current_point_index = 0
@@ -14,10 +15,12 @@ func _ready() -> void:
 	curve.bake_interval = 150
 	points = curve.get_baked_points()
 	line_2d.points = points
+	colored_pattern.add_point(points[0])
 
 func _process(_delta: float) -> void:
 	if pointer.progress > curve.get_baked_length() - 25 or current_point_index + 1 == points.size():
 		if not has_finished:
+			colored_pattern.add_point(points[points.size() - 1])
 			finished.emit()
 			has_finished = true
 		return
@@ -38,6 +41,7 @@ func _process(_delta: float) -> void:
 	
 	if curve.get_closest_offset(points[current_point_index + 1]) <= pointer.progress:
 		current_point_index += 1
+		colored_pattern.add_point(points[current_point_index])
 
 func _on_area_2d_mouse_entered() -> void:
 	mouse_inside_area = true

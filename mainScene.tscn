@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hvs1yswhbt2s"]
+[gd_scene load_steps=3 format=3 uid="uid://hvs1yswhbt2s"]
 
 [ext_resource type="Texture2D" uid="uid://8eamavqxeex6" path="res://plante.png" id="1_iwpey"]
+[ext_resource type="PackedScene" uid="uid://dpel28tagyukw" path="res://scenes/problem.tscn" id="2_g4qto"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -8,3 +9,29 @@
 position = Vector2(963.49994, 536.5001)
 scale = Vector2(3.1066065, 3.1186867)
 texture = ExtResource("1_iwpey")
+
+[node name="Problems" type="Node" parent="."]
+
+[node name="Soif" parent="Problems" instance=ExtResource("2_g4qto")]
+unlock_time = 5
+reload_time = 30
+
+[node name="Triste" parent="Problems" instance=ExtResource("2_g4qto")]
+unlock_time = 20
+reload_time = 30
+
+[node name="Froid" parent="Problems" instance=ExtResource("2_g4qto")]
+unlock_time = 45
+reload_time = 30
+
+[node name="Sombre" parent="Problems" instance=ExtResource("2_g4qto")]
+unlock_time = 60
+reload_time = 30
+
+[node name="Faible" parent="Problems" instance=ExtResource("2_g4qto")]
+unlock_time = 75
+reload_time = 30
+
+[node name="Faim" parent="Problems" instance=ExtResource("2_g4qto")]
+unlock_time = 90
+reload_time = 30
