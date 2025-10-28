@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch3vuay0jj1wd"]
+
+[ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="1_126cy"]
+[ext_resource type="Texture2D" uid="uid://chgswxgrfdo5d" path="res://art/icon.svg" id="1_soycm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuehv"]
+atlas = ExtResource("1_soycm")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcctn"]
+atlas = ExtResource("1_soycm")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nbml"]
+atlas = ExtResource("1_soycm")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdyer"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuehv")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcctn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nbml")
+}],
+"loop": true,
+"name": &"on",
+"speed": 3.0
+}]
+
+[node name="LED" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mdyer")
+animation = &"on"
+autoplay = "off"
+script = ExtResource("1_126cy")
