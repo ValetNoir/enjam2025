@@ -1,17 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=7 format=3 uid="uid://d3f1hiiwkltqs"]
 
-[ext_resource type="Texture2D" uid="uid://8eamavqxeex6" path="res://art/plante.png" id="1_8ifl6"]
-[ext_resource type="Script" uid="uid://6u5mlf5makju" path="res://scripts/plantActivityTrigger.gd" id="2_twn0q"]
-[ext_resource type="PackedScene" path="res://scenes/tools/priere.tscn" id="3_hhxvm"]
+[ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
+[ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/perfusion-pleine.png" id="2_1jq6i"]
+[ext_resource type="Texture2D" uid="uid://cxhachq8bltmh" path="res://art/arosoir.png" id="3_1jq6i"]
 [ext_resource type="PackedScene" uid="uid://dpel28tagyukw" path="res://scenes/problem.tscn" id="3_twn0q"]
+[ext_resource type="PackedScene" uid="uid://wlp0aaf4sfw1" path="res://scenes/trigger.tscn" id="4_hhxvm"]
 [ext_resource type="PackedScene" uid="uid://ch3vuay0jj1wd" path="res://scenes/led.tscn" id="5_w16ng"]
 
 [node name="MainScene" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(963.49994, 536.5001)
-scale = Vector2(3.1066065, 3.1186867)
-texture = ExtResource("1_8ifl6")
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.997971, 1.0018518)
+texture = ExtResource("1_w16ng")
+centered = false
+
+[node name="PerfusionPleine" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_1jq6i")
+centered = false
+
+[node name="Arosoir" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("3_1jq6i")
+centered = false
 
 [node name="Problems" type="Node" parent="."]
 
@@ -57,6 +68,39 @@ reload_time = 30
 [node name="LED" parent="Problems/Faim" instance=ExtResource("5_w16ng")]
 position = Vector2(243, 1047)
 
+[node name="Triggers" type="Node" parent="."]
+
+[node name="Arrosoir" parent="Triggers" instance=ExtResource("4_hhxvm")]
+
+[node name="CollisionPolygon2D" parent="Triggers/Arrosoir" index="0"]
+polygon = PackedVector2Array(1772, 74, 1634, 162, 1634, 423, 1761, 499, 1904, 422, 1907, 156)
+
+[node name="Clavier" parent="Triggers" instance=ExtResource("4_hhxvm")]
+
+[node name="CollisionPolygon2D" parent="Triggers/Clavier" index="0"]
+polygon = PackedVector2Array(524, 925, 357, 1006, 370, 1072, 813, 1073, 811, 1006, 744, 920)
+
+[node name="Chapelet" parent="Triggers" instance=ExtResource("4_hhxvm")]
+
+[node name="CollisionPolygon2D" parent="Triggers/Chapelet" index="0"]
+position = Vector2(41, -512)
+polygon = PackedVector2Array(104, 749, 41, 796, 48, 1035, 104, 1109, 173, 1026, 173, 799)
+
+[node name="Sang" parent="Triggers" instance=ExtResource("4_hhxvm")]
+
+[node name="CollisionPolygon2D" parent="Triggers/Sang" index="0"]
+polygon = PackedVector2Array(1283, 899, 1143, 1039, 1182, 1076, 1395, 1078, 1505, 947)
+
+[node name="Bonnet" parent="Triggers" instance=ExtResource("4_hhxvm")]
+
+[node name="CollisionPolygon2D" parent="Triggers/Bonnet" index="0"]
+polygon = PackedVector2Array(279, 756, 175, 810, 157, 923, 264, 963, 395, 942, 378, 813)
+
+[node name="Tartine" parent="Triggers" instance=ExtResource("4_hhxvm")]
+
+[node name="CollisionPolygon2D" parent="Triggers/Tartine" index="0"]
+polygon = PackedVector2Array(156, 937, 79, 932, 6, 968, 8, 1025, 127, 1050, 231, 1023, 241, 976)
+
 [connection signal="started" from="Problems/Soif" to="Problems/Soif/LED" method="on"]
 [connection signal="stopped" from="Problems/Soif" to="Problems/Soif/LED" method="off"]
 [connection signal="started" from="Problems/Triste" to="Problems/Triste/LED" method="on"]
@@ -69,3 +113,10 @@ position = Vector2(243, 1047)
 [connection signal="stopped" from="Problems/Faible" to="Problems/Faible/LED" method="off"]
 [connection signal="started" from="Problems/Faim" to="Problems/Faim/LED" method="on"]
 [connection signal="stopped" from="Problems/Faim" to="Problems/Faim/LED" method="off"]
+
+[editable path="Triggers/Arrosoir"]
+[editable path="Triggers/Clavier"]
+[editable path="Triggers/Chapelet"]
+[editable path="Triggers/Sang"]
+[editable path="Triggers/Bonnet"]
+[editable path="Triggers/Tartine"]
