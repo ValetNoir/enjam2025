@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=6 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://8eamavqxeex6" path="res://art/plante.png" id="1_8ifl6"]
 [ext_resource type="Script" uid="uid://6u5mlf5makju" path="res://scripts/plantActivityTrigger.gd" id="2_twn0q"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="3_hhxvm"]
 [ext_resource type="PackedScene" uid="uid://dpel28tagyukw" path="res://scenes/problem.tscn" id="3_twn0q"]
+[ext_resource type="PackedScene" uid="uid://ch3vuay0jj1wd" path="res://scenes/led.tscn" id="5_w16ng"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -27,22 +28,53 @@ polygon = PackedVector2Array(702, 400, 753, 517, 330, 511, 307, 468, 488, 390)
 unlock_time = 5
 reload_time = 30
 
+[node name="LED" parent="Problems/Soif" instance=ExtResource("5_w16ng")]
+position = Vector2(1757, 370)
+
 [node name="Triste" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 20
 reload_time = 30
+
+[node name="LED" parent="Problems/Triste" instance=ExtResource("5_w16ng")]
+position = Vector2(943, 785)
 
 [node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 45
 reload_time = 30
 
+[node name="LED" parent="Problems/Froid" instance=ExtResource("5_w16ng")]
+position = Vector2(392, 891)
+
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 60
 reload_time = 30
+
+[node name="LED" parent="Problems/Sombre" instance=ExtResource("5_w16ng")]
+position = Vector2(217, 446)
 
 [node name="Faible" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 75
 reload_time = 30
 
+[node name="LED" parent="Problems/Faible" instance=ExtResource("5_w16ng")]
+position = Vector2(1467, 1023)
+
 [node name="Faim" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 90
 reload_time = 30
+
+[node name="LED" parent="Problems/Faim" instance=ExtResource("5_w16ng")]
+position = Vector2(243, 1047)
+
+[connection signal="started" from="Problems/Soif" to="Problems/Soif/LED" method="on"]
+[connection signal="stopped" from="Problems/Soif" to="Problems/Soif/LED" method="off"]
+[connection signal="started" from="Problems/Triste" to="Problems/Triste/LED" method="on"]
+[connection signal="stopped" from="Problems/Triste" to="Problems/Triste/LED" method="off"]
+[connection signal="started" from="Problems/Froid" to="Problems/Froid/LED" method="on"]
+[connection signal="stopped" from="Problems/Froid" to="Problems/Froid/LED" method="off"]
+[connection signal="started" from="Problems/Sombre" to="Problems/Sombre/LED" method="on"]
+[connection signal="stopped" from="Problems/Sombre" to="Problems/Sombre/LED" method="off"]
+[connection signal="started" from="Problems/Faible" to="Problems/Faible/LED" method="on"]
+[connection signal="stopped" from="Problems/Faible" to="Problems/Faible/LED" method="off"]
+[connection signal="started" from="Problems/Faim" to="Problems/Faim/LED" method="on"]
+[connection signal="stopped" from="Problems/Faim" to="Problems/Faim/LED" method="off"]
