@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsl0fyk1ux4ph"]
+[gd_scene load_steps=3 format=3 uid="uid://bsl0fyk1ux4ph"]
 
 [ext_resource type="Texture2D" uid="uid://8eamavqxeex6" path="res://plante.png" id="1_iwpey"]
+[ext_resource type="Script" uid="uid://6u5mlf5makju" path="res://scripts/plantActivityTrigger.gd" id="2_g4qto"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -8,3 +9,10 @@
 position = Vector2(963.49994, 536.5001)
 scale = Vector2(3.1066065, 3.1186867)
 texture = ExtResource("1_iwpey")
+
+[node name="plantActivityTrigger" type="Area2D" parent="."]
+script = ExtResource("2_g4qto")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="plantActivityTrigger"]
+position = Vector2(59, 544)
+polygon = PackedVector2Array(702, 400, 753, 517, 330, 511, 307, 468, 488, 390)
