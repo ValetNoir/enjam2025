@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://di1ssyrwwp7as"]
+[gd_scene load_steps=5 format=3 uid="uid://di1ssyrwwp7as"]
 
+[ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_0xous"]
 [ext_resource type="PackedScene" uid="uid://ferd4yatx5ry" path="res://scenes/base_mechanics/pattern.tscn" id="1_f1tsd"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="3_ofrxk"]
 
 [sub_resource type="Curve2D" id="Curve2D_o252o"]
 _data = {
@@ -9,6 +11,7 @@ _data = {
 point_count = 4
 
 [node name="Priere" type="Node"]
+script = ExtResource("1_0xous")
 
 [node name="Pattern" parent="." instance=ExtResource("1_f1tsd")]
 curve = SubResource("Curve2D_o252o")
@@ -17,7 +20,12 @@ curve = SubResource("Curve2D_o252o")
 position = Vector2(925, 137)
 rotation = 1.5912364
 
+[node name="Sprite2D" parent="Pattern/Pointer" index="1"]
+texture = ExtResource("3_ofrxk")
+
 [node name="ColoredPattern" parent="Pattern" index="2"]
 width = 30.0
+
+[connection signal="finished" from="Pattern" to="." method="finish"]
 
 [editable path="Pattern"]
