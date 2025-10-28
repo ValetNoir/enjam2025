@@ -1,19 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dirsc5es5llxs"]
+[gd_scene load_steps=2 format=3 uid="uid://dirsc5es5llxs"]
 
 [ext_resource type="Script" uid="uid://bmiuimydtbqgs" path="res://scripts/hold.gd" id="1_7hg7i"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l42m3"]
-size = Vector2(274, 324.5)
 
 [node name="Hold" type="Area2D"]
 script = ExtResource("1_7hg7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(577, 207.25)
-shape = SubResource("RectangleShape2D_l42m3")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_area_2d_mouse_exited"]

@@ -2,11 +2,11 @@ extends Node
 
 @onready var timer: Timer = $Timer
 
-@export var plant: Node
-
 @export var unlock_time = 10
 @export var reload_time = 10
 @export_range (0, 20) var reload_time_variation: float = 10
+@export var health_boost = 50
+@export var damage_per_second = 1
 
 var isActive = false
 
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	if not isActive:
 		return
 	
-	plant.life -= 1 * delta
+	Data.plant_health -= damage_per_second * delta
 
 func start() -> void:
 	started.emit()
@@ -30,6 +30,7 @@ func stop() -> void:
 	stopped.emit()
 	timer.wait_time = reload_time + reload_time_variation * randf()
 	timer.start()
+	Data.plant_health += health_boost
 
 func _on_timer_timeout() -> void:
 	start()
