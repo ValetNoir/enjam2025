@@ -4,7 +4,7 @@ extends Node
 
 @export var unlock_time = 10
 @export var reload_time = 10
-@export_range (0, 20) var reload_time_variation: float = 10
+@export_range (0, 60) var reload_time_variation: float = 10
 @export var health_boost = 50
 @export var damage_per_second = 1
 
