@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [node name="LED" type="AnimatedSprite2D"]
-z_index = 2
+z_index = -2
 sprite_frames = SubResource("SpriteFrames_mdyer")
 animation = &"off"
 autoplay = "off"
