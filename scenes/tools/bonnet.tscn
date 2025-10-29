@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk0s1e64hqd77"]
+[gd_scene load_steps=8 format=3 uid="uid://bk0s1e64hqd77"]
 
 [ext_resource type="PackedScene" uid="uid://dirsc5es5llxs" path="res://scenes/base_mechanics/hold.tscn" id="1_6vqef"]
 [ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_ama5w"]
 [ext_resource type="Script" uid="uid://c5tqxoxdihhc0" path="res://scripts/bonnet_creator.gd" id="2_1h8lt"]
 [ext_resource type="PackedScene" uid="uid://cehaeg2xg0uko" path="res://scenes/bonnet_sprite.tscn" id="3_1h8lt"]
 [ext_resource type="Texture2D" uid="uid://boc6pb18odbor" path="res://art/bonnet_cursor.png" id="5_44iq3"]
+[ext_resource type="AudioStream" uid="uid://cdg7c75uqjiah" path="res://Sound/SFX_Cap/SFX_Cap_Take.wav" id="6_wgokl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88lr0"]
 size = Vector2(592, 571)
@@ -25,6 +26,12 @@ shape = SubResource("RectangleShape2D_88lr0")
 
 [node name="Timer" parent="Hold" index="1"]
 wait_time = 0.001
+
+[node name="SFX_Play" type="AudioStreamPlayer" parent="Hold"]
+
+[node name="SFX_Spawn" type="AudioStreamPlayer" parent="Hold"]
+stream = ExtResource("6_wgokl")
+autoplay = true
 
 [connection signal="finished" from="BonnetCreator" to="." method="finish"]
 [connection signal="finished" from="Hold" to="BonnetCreator" method="create_bonnet"]

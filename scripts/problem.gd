@@ -28,6 +28,7 @@ func start() -> void:
 	is_active = true
 
 func stop() -> void:
+	$SFX_Solution.play()
 	stopped.emit()
 	timer.wait_time = reload_time + reload_time_variation * randf()
 	timer.start()

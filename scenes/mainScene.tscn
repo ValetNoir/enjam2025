@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=42 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/perfusion-pleine.png" id="2_1jq6i"]
@@ -15,8 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://drv58v1ygo0kg" path="res://art/plante-top.png" id="11_ybfn7"]
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/plante-morte.png" id="13_khoa4"]
+[ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_cebwr"]
 [ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="15_w72fx"]
 [ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
+[ext_resource type="AudioStream" uid="uid://dsdif138t8mrw" path="res://Sound/SFX_Cap/SFX_Cap_Put.wav" id="16_tc00d"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
@@ -28,6 +30,10 @@
 [ext_resource type="Texture2D" uid="uid://bp25gm8wa2ktm" path="res://art/perfusion-outline.png" id="24_k7hqw"]
 [ext_resource type="Texture2D" uid="uid://cf0rjqdo2nwje" path="res://art/tartine-outline.png" id="25_tokr4"]
 [ext_resource type="Texture2D" uid="uid://nuhmafm2dup0" path="res://art/clavier-outline.png" id="27_nt7sb"]
+[ext_resource type="AudioStream" uid="uid://dscaiaugd4n8d" path="res://Sound/Amb/Amb_Clock.wav" id="29_3tgni"]
+[ext_resource type="AudioStream" uid="uid://cj1d706o1n7pk" path="res://Sound/Amb/AMB_NextDoor.wav" id="30_u82ob"]
+[ext_resource type="AudioStream" uid="uid://ljyuy4xkxatg" path="res://Sound/Amb/Amb_Tone.wav" id="31_cebwr"]
+[ext_resource type="AudioStream" uid="uid://dmxsthp8ypbfa" path="res://Sound/MSC.wav" id="32_tc00d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x04a8"]
 animations = [{
@@ -172,6 +178,9 @@ reload_time = 30
 [node name="LED" parent="Problems/Soif" index="1"]
 position = Vector2(862, 794)
 
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Soif"]
+stream = ExtResource("15_cebwr")
+
 [node name="Triste" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 15
 reload_time = 30
@@ -186,12 +195,18 @@ reload_time = 30
 [node name="LED" parent="Problems/Froid" index="1"]
 position = Vector2(994, 787)
 
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Froid"]
+stream = ExtResource("16_tc00d")
+
 [node name="Hack" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 1
 reload_time = 30
 reload_time_variation = 45.0
 health_boost = 0
 damage_per_second = 0
+
+[node name="LED" parent="Problems/Hack" index="1"]
+visible = false
 
 [node name="Mask" type="AnimatedSprite2D" parent="Problems/Hack"]
 z_index = -1
@@ -200,9 +215,6 @@ animation = &"on"
 autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
-
-[node name="LED" parent="Problems/Hack" index="2"]
-visible = false
 
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 60
@@ -323,6 +335,25 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_w72fx")
 value = 50.0
 show_percentage = false
 script = ExtResource("19_f44mt")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="AmbClock" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("29_3tgni")
+volume_db = -6.0
+autoplay = true
+
+[node name="AmbNextDoor" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("30_u82ob")
+autoplay = true
+
+[node name="AmbTone" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("31_cebwr")
+autoplay = true
+
+[node name="Msc" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("32_tc00d")
+autoplay = true
 
 [connection signal="started" from="Problems/Hack" to="Problems/Hack/Mask" method="on"]
 [connection signal="stopped" from="Problems/Hack" to="Problems/Hack/Mask" method="off"]
