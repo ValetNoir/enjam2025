@@ -7,6 +7,7 @@ extends Path2D
 var mouse_inside_area = false
 var current_point_index = 0
 var points
+var sfx_volume = remap(pointer.progress, 0.0, 1800.0, -80.0, 0.0)
 
 var has_finished = false
 signal finished()
@@ -18,6 +19,7 @@ func _ready() -> void:
 	colored_pattern.add_point(points[0])
 
 func _process(_delta: float) -> void:
+	$SFX_Play.set_volume_db(sfx_volume)
 	if pointer.progress > curve.get_baked_length() - 25 or current_point_index + 1 == points.size():
 		if not has_finished:
 			colored_pattern.add_point(points[points.size() - 1])

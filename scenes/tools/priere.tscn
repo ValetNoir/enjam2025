@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://di1ssyrwwp7as"]
+[gd_scene load_steps=6 format=3 uid="uid://di1ssyrwwp7as"]
 
 [ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_0xous"]
 [ext_resource type="PackedScene" uid="uid://ferd4yatx5ry" path="res://scenes/base_mechanics/pattern.tscn" id="1_f1tsd"]
 [ext_resource type="Texture2D" uid="uid://bak553ieyl5g7" path="res://art/chapelet-souris.png" id="3_0xous"]
+[ext_resource type="AudioStream" uid="uid://xppaiwtjnq38" path="res://Sound/SFX_Prayer/SFX_Prayer_Draw.wav" id="4_ofrxk"]
 
 [sub_resource type="Curve2D" id="Curve2D_o252o"]
 _data = {
@@ -25,6 +26,9 @@ texture = ExtResource("3_0xous")
 
 [node name="ColoredPattern" parent="Pattern" index="2"]
 width = 30.0
+
+[node name="SFX_Play" type="AudioStreamPlayer" parent="Pattern"]
+stream = ExtResource("4_ofrxk")
 
 [connection signal="finished" from="Pattern" to="." method="finish"]
 
