@@ -29,6 +29,7 @@ width = 30.0
 
 [node name="SFX_Play" type="AudioStreamPlayer" parent="Pattern"]
 stream = ExtResource("4_ofrxk")
+autoplay = true
 
 [connection signal="finished" from="Pattern" to="." method="finish"]
 
