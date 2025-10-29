@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/perfusion-pleine.png" id="2_1jq6i"]
-[ext_resource type="Texture2D" uid="uid://cxhachq8bltmh" path="res://art/arosoir.png" id="3_1jq6i"]
+[ext_resource type="Texture2D" uid="uid://cxhachq8bltmh" path="res://art/arrosoir.png" id="3_1jq6i"]
 [ext_resource type="PackedScene" uid="uid://dpel28tagyukw" path="res://scenes/problem.tscn" id="3_twn0q"]
 [ext_resource type="Texture2D" uid="uid://c2t8sgc27awge" path="res://art/perfusion-vide.png" id="3_vdgl5"]
 [ext_resource type="PackedScene" uid="uid://wlp0aaf4sfw1" path="res://scenes/trigger.tscn" id="4_hhxvm"]
@@ -134,7 +134,7 @@ centered = false
 [node name="Problems" type="Node" parent="."]
 
 [node name="Soif" parent="Problems" instance=ExtResource("3_twn0q")]
-unlock_time = 0
+unlock_time = 1
 reload_time = 30
 
 [node name="LED" parent="Problems/Soif" index="1"]
@@ -155,7 +155,7 @@ reload_time = 30
 position = Vector2(994, 787)
 
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
-unlock_time = 0
+unlock_time = 60
 reload_time = 30
 
 [node name="LED" parent="Problems/Sombre" index="1"]

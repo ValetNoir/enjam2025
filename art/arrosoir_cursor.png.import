@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxhachq8bltmh"
-path="res://.godot/imported/arosoir.png-41c114f1c2db77f34d9496a852ed5e10.ctex"
+uid="uid://hvlhppfmkgwy"
+path="res://.godot/imported/arrosoir_cursor.png-840da2a131a9694c33be10760f5b25b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/arosoir.png"
-dest_files=["res://.godot/imported/arosoir.png-41c114f1c2db77f34d9496a852ed5e10.ctex"]
+source_file="res://art/arrosoir_cursor.png"
+dest_files=["res://.godot/imported/arrosoir_cursor.png-840da2a131a9694c33be10760f5b25b9.ctex"]
 
 [params]
 

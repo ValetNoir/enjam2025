@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk0s1e64hqd77"]
+
+[ext_resource type="PackedScene" uid="uid://dirsc5es5llxs" path="res://scenes/base_mechanics/hold.tscn" id="1_6vqef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88lr0"]
+size = Vector2(592, 571)
+
+[node name="Bonnet" type="Node"]
+
+[node name="Hold" parent="." instance=ExtResource("1_6vqef")]
+
+[node name="CollisionShape2D" parent="Hold" index="0"]
+position = Vector2(1028, 298.5)
+shape = SubResource("RectangleShape2D_88lr0")
+
+[node name="Timer" parent="Hold" index="1"]
+wait_time = 0.001
+
+[editable path="Hold"]
