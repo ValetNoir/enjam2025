@@ -7,7 +7,7 @@ var plant_died = false
 
 signal end_game()
 
-func restart():
+func reset():
 	plant_health = 100
 	is_occupied = false
 	plant_died = false

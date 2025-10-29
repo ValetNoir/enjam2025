@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://63x1dtlcbe8d"]
+
+[ext_resource type="Texture2D" uid="uid://dapx4who0n613" path="res://art/96864104f5955e0ae9e48ed1398f0abf.jpg" id="1_he7uh"]
+[ext_resource type="Texture2D" uid="uid://dstm5qeagq84f" path="res://art/ad42897e261914f249151bb0fa2670e2.jpg" id="2_liot7"]
+
+[node name="Troll" type="Node"]
+
+[node name="96864104f5955e0Ae9e48Ed1398f0Abf" type="Sprite2D" parent="."]
+position = Vector2(467.25, 556.00006)
+scale = Vector2(1.3983482, 1.1445785)
+texture = ExtResource("1_he7uh")
+
+[node name="Ad42897e261914f249151Bb0Fa2670e2" type="Sprite2D" parent="."]
+position = Vector2(1434.5, 583)
+scale = Vector2(1.46875, 1.0507246)
+texture = ExtResource("2_liot7")

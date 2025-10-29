@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://ttub3kaa30gg" path="res://art/OUTLINES/chapelet-outline.png" id="23_x04a8"]
 [ext_resource type="Texture2D" uid="uid://doh3bf6psi0oj" path="res://art/DIODES OFF/DIODE-SANG-OFF.png" id="24_7hh7r"]
 [ext_resource type="Texture2D" uid="uid://bp25gm8wa2ktm" path="res://art/OUTLINES/perfusion-outline.png" id="24_k7hqw"]
+[ext_resource type="Texture2D" uid="uid://ccvwh6t802lds" path="res://art/PLANT/pot-plante-cassé.png" id="25_4bq3f"]
 [ext_resource type="Texture2D" uid="uid://bbborqvui2xlq" path="res://art/DIODES ON/DIODE-SANG-ON.png" id="25_hm6xc"]
 [ext_resource type="Texture2D" uid="uid://nuhmafm2dup0" path="res://art/OUTLINES/clavier-outline.png" id="27_nt7sb"]
 [ext_resource type="AudioStream" uid="uid://dscaiaugd4n8d" path="res://Sound/Amb/Amb_Clock.wav" id="29_3tgni"]
@@ -161,25 +162,21 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybfn7"]
-atlas = ExtResource("9_1s0h2")
-region = Rect2(0, 0, 1920, 1080)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_u2jin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"off",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ybfn7")
+"texture": ExtResource("25_4bq3f")
 }],
-"loop": true,
+"loop": false,
 "name": &"on",
 "speed": 0.0
 }]
@@ -247,7 +244,7 @@ centered = false
 [node name="Perfusion" type="AnimatedSprite2D" parent="Graphics"]
 z_index = -4
 sprite_frames = SubResource("SpriteFrames_x04a8")
-animation = &"vide"
+animation = &"pleine"
 centered = false
 
 [node name="Arrosoir" type="Sprite2D" parent="Graphics"]
@@ -352,7 +349,7 @@ damage_per_second = 0
 [node name="Mask" type="AnimatedSprite2D" parent="Problems/Hack"]
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_u2jin")
-animation = &"on"
+animation = &"off"
 autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
