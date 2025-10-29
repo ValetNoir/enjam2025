@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dq4khbqrbmc84"]
+[gd_scene load_steps=15 format=3 uid="uid://dq4khbqrbmc84"]
 
 [ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_6tkmx"]
 [ext_resource type="PackedScene" uid="uid://4dpskel2qhru" path="res://scenes/base_mechanics/textTyper.tscn" id="2_pf55w"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dgixjkr6x3csw" path="res://Sound/SFX_Keyboard/SFX_Keyboard_008.wav" id="10_dabhx"]
 [ext_resource type="AudioStream" uid="uid://cpn68txteclt4" path="res://Sound/SFX_Keyboard/SFX_Keyboard_009.wav" id="11_vygpc"]
 [ext_resource type="AudioStream" uid="uid://bve1yhqyrqp6g" path="res://Sound/SFX_Keyboard/SFX_Keyboard_010.wav" id="12_p3uyg"]
+[ext_resource type="AudioStream" uid="uid://ydtglv5gc52p" path="res://Sound/SFX_Usb/SFX_USB_PlugIn.wav" id="13_0o4j2"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_utgts"]
 streams_count = 10
@@ -34,5 +35,9 @@ wordList = Array[String](["plantsudo rm -rf", "restart plant processor", "Démar
 
 [node name="SFX_Play" type="AudioStreamPlayer" parent="TextTyper"]
 stream = SubResource("AudioStreamRandomizer_utgts")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextTyper"]
+stream = ExtResource("13_0o4j2")
+autoplay = true
 
 [connection signal="sentenceCompleted" from="TextTyper" to="." method="finish"]

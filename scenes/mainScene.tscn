@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=62 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/OBJECTS/perfusion/perfusion-pleine.png" id="2_1jq6i"]
@@ -43,12 +43,13 @@
 [ext_resource type="Texture2D" uid="uid://bp25gm8wa2ktm" path="res://art/OUTLINES/perfusion-outline.png" id="24_k7hqw"]
 [ext_resource type="Texture2D" uid="uid://ccvwh6t802lds" path="res://art/PLANT/pot-plante-cassé.png" id="25_4bq3f"]
 [ext_resource type="Texture2D" uid="uid://bbborqvui2xlq" path="res://art/DIODES ON/DIODE-SANG-ON.png" id="25_hm6xc"]
+[ext_resource type="AudioStream" uid="uid://8ms56apg05h1" path="res://Sound/SFX_Usb/SFX_USB_PlugOut.wav" id="27_fmt3g"]
 [ext_resource type="Texture2D" uid="uid://nuhmafm2dup0" path="res://art/OUTLINES/clavier-outline.png" id="27_nt7sb"]
 [ext_resource type="AudioStream" uid="uid://dscaiaugd4n8d" path="res://Sound/Amb/Amb_Clock.wav" id="29_3tgni"]
 [ext_resource type="AudioStream" uid="uid://cj1d706o1n7pk" path="res://Sound/Amb/AMB_NextDoor.wav" id="30_u82ob"]
 [ext_resource type="AudioStream" uid="uid://ljyuy4xkxatg" path="res://Sound/Amb/Amb_Tone.wav" id="31_cebwr"]
 [ext_resource type="AudioStream" uid="uid://dmxsthp8ypbfa" path="res://Sound/MSC.wav" id="32_tc00d"]
-[ext_resource type="PackedScene" path="res://scenes/tools/bloodPump.tscn" id="41_xmuta"]
+[ext_resource type="PackedScene" uid="uid://dp22qciegd56o" path="res://scenes/tools/bloodPump.tscn" id="41_xmuta"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x04a8"]
 animations = [{
@@ -329,6 +330,7 @@ centered = false
 script = ExtResource("15_w72fx")
 
 [node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Triste"]
+stream = ExtResource("27_fmt3g")
 
 [node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 30
@@ -362,7 +364,7 @@ centered = false
 script = ExtResource("15_w72fx")
 
 [node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Hack"]
-stream = ExtResource("15_cebwr")
+stream = ExtResource("27_fmt3g")
 
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 60
@@ -394,7 +396,6 @@ centered = false
 script = ExtResource("15_w72fx")
 
 [node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Faible"]
-stream = ExtResource("15_cebwr")
 
 [node name="Triggers" type="Node" parent="."]
 

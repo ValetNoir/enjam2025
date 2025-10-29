@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b2j3kctlfme5"]
+[gd_scene load_steps=35 format=3 uid="uid://b2j3kctlfme5"]
 
 [ext_resource type="Script" uid="uid://c3ewhvyw7hg86" path="res://scripts/microphone.gd" id="1_gvrpp"]
 [ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_iyxqq"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://dy12eevob2sv4" path="res://Sound/SFX_Alphabet/SFX_Alphabet_008.wav" id="29_gecha"]
 [ext_resource type="AudioStream" uid="uid://dr2d6enwhjccc" path="res://Sound/SFX_Alphabet/SFX_Alphabet_009.wav" id="30_8wrmc"]
 [ext_resource type="AudioStream" uid="uid://dmxpt07b4fetm" path="res://Sound/SFX_Alphabet/SFX_Alphabet_010.wav" id="31_crvgr"]
+[ext_resource type="AudioStream" uid="uid://ydtglv5gc52p" path="res://Sound/SFX_Usb/SFX_USB_PlugIn.wav" id="32_d6q8i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gvrpp"]
 font = ExtResource("5_c7qnd")
@@ -98,5 +99,9 @@ label_settings = SubResource("LabelSettings_gvrpp")
 [node name="SFX_Play" type="AudioStreamPlayer" parent="Microphone"]
 stream = SubResource("AudioStreamRandomizer_c7qnd")
 pitch_scale = 1.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Microphone"]
+stream = ExtResource("32_d6q8i")
+autoplay = true
 
 [connection signal="textCompleted" from="Microphone" to="." method="finish"]

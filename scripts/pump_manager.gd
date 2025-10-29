@@ -15,6 +15,7 @@ func _on_pump_area_input_event(viewport: Node, event: InputEvent, shape_idx: int
 	if !is_pump_filled and event is InputEventMouseButton and event.is_pressed():
 		pumps[index].visible = false
 		index += 1;
+		$"../Pumps/SFX_Play".play()
 		if index >= pumps.size():
 			finished.emit()
 		

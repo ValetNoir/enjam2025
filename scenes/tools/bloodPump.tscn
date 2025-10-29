@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://diu7vgysp37lo"]
+[gd_scene load_steps=15 format=3 uid="uid://dp22qciegd56o"]
 
 [ext_resource type="Script" uid="uid://pcxn3d1bu0m7" path="res://scripts/pump_manager.gd" id="1_a248v"]
-[ext_resource type="Texture2D" path="res://art/OBJECTS/perfusion-pleine.png" id="1_c44h7"]
 [ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_qjjp1"]
 [ext_resource type="Texture2D" uid="uid://gkw6t275ap8e" path="res://art/OBJECTS/perfusion/perfusion1.6.png" id="2_8gx40"]
 [ext_resource type="Texture2D" uid="uid://caiiitf1ql6vl" path="res://art/OBJECTS/perfusion/perfusion1.5.png" id="3_vrkdq"]
@@ -9,6 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://b55w2r7f4miww" path="res://art/OBJECTS/perfusion/perfusion1.2.png" id="6_4yuky"]
 [ext_resource type="Texture2D" uid="uid://b7gl0v6e2jyxp" path="res://art/OBJECTS/perfusion/perfusion-1.1.png" id="7_4dtlp"]
 [ext_resource type="Texture2D" uid="uid://c2t8sgc27awge" path="res://art/OBJECTS/perfusion/perfusion-vide.png" id="8_23xxe"]
+[ext_resource type="AudioStream" uid="uid://djps3a3k426cv" path="res://Sound/SFX_Blood/SFX_Blood_Pump.wav" id="9_4dtlp"]
+[ext_resource type="AudioStream" uid="uid://c6ftwxvcxivll" path="res://Sound/SFX_Blood/SFX_Blood_Pump_001.wav" id="10_23xxe"]
+[ext_resource type="AudioStream" uid="uid://db2rr4yjkym8f" path="res://Sound/SFX_Blood/SFX_Blood_Pump_002.wav" id="11_rvpfc"]
+[ext_resource type="AudioStream" uid="uid://fk1e7yj68kah" path="res://Sound/SFX_Blood/SFX_Blood_Pump_003.wav" id="12_0mr56"]
+[ext_resource type="AudioStream" uid="uid://b13xjxc3e20bm" path="res://Sound/SFX_Blood/SFX_Blood_Pump_004.wav" id="13_it48x"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ivn5y"]
+streams_count = 5
+stream_0/stream = ExtResource("9_4dtlp")
+stream_1/stream = ExtResource("10_23xxe")
+stream_2/stream = ExtResource("11_rvpfc")
+stream_3/stream = ExtResource("12_0mr56")
+stream_4/stream = ExtResource("13_it48x")
 
 [node name="BloodPumpSolution" type="Node"]
 script = ExtResource("1_qjjp1")
@@ -30,7 +42,6 @@ texture = ExtResource("3_vrkdq")
 
 [node name="4" type="Sprite2D" parent="Pumps"]
 position = Vector2(960, 538)
-texture = ExtResource("1_c44h7")
 
 [node name="3" type="Sprite2D" parent="Pumps"]
 position = Vector2(960, 538)
@@ -53,6 +64,9 @@ texture = ExtResource("8_23xxe")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pumps/pumpArea"]
 position = Vector2(483, 405)
 polygon = PackedVector2Array(-3, 112, 103, 69, 101, -96, -23, -80)
+
+[node name="SFX_Play" type="AudioStreamPlayer" parent="Pumps"]
+stream = SubResource("AudioStreamRandomizer_ivn5y")
 
 [connection signal="finished" from="PumpManager" to="." method="finish"]
 [connection signal="input_event" from="Pumps/pumpArea" to="PumpManager" method="_on_pump_area_input_event"]
