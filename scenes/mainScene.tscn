@@ -512,10 +512,6 @@ autoplay = true
 [connection signal="stopped" from="Problems/Froid" to="Problems/Froid/LED" method="off"]
 [connection signal="started" from="Problems/Hack" to="Problems/Hack/Mask" method="on"]
 [connection signal="stopped" from="Problems/Hack" to="Problems/Hack/Mask" method="off"]
-[connection signal="started" from="Problems/Sombre" to="Problems/Sombre/LED" method="on"]
-[connection signal="stopped" from="Problems/Sombre" to="Problems/Sombre/LED" method="off"]
-[connection signal="started" from="Problems/Faible" to="Problems/Faible/LED" method="on"]
-[connection signal="stopped" from="Problems/Faible" to="Problems/Faible/LED" method="off"]
 
 [editable path="Problems/Soif"]
 [editable path="Problems/Triste"]
