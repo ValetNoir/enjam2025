@@ -353,7 +353,6 @@ script = ExtResource("15_w72fx")
 stream = ExtResource("15_cebwr")
 
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
-unlock_time = 60
 reload_time = 30
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Sombre"]
@@ -476,19 +475,22 @@ script = ExtResource("19_f44mt")
 
 [node name="AmbClock" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("29_3tgni")
-volume_db = -6.0
+volume_db = -3.0
 autoplay = true
 
 [node name="AmbNextDoor" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("30_u82ob")
+volume_db = 3.0
 autoplay = true
 
 [node name="AmbTone" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("31_cebwr")
+volume_db = 3.0
 autoplay = true
 
 [node name="Msc" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("32_tc00d")
+volume_db = 3.0
 autoplay = true
 
 [connection signal="started" from="Problems/Soif" to="Problems/Soif/LED" method="on"]
