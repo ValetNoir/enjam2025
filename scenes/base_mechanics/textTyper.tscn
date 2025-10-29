@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://4dpskel2qhru"]
+[gd_scene load_steps=5 format=3 uid="uid://4dpskel2qhru"]
 
 [ext_resource type="Script" uid="uid://ys5wknolbgnj" path="res://scripts/textTyper.gd" id="1_3560m"]
+[ext_resource type="FontFile" uid="uid://dkfqago3ir6to" path="res://texts/Asai-Analogue.ttf" id="2_jy60f"]
+[ext_resource type="PackedScene" uid="uid://d3f1hiiwkltqs" path="res://scenes/mainScene.tscn" id="2_nb7r3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ulfch"]
+font = ExtResource("2_jy60f")
+font_size = 40
+outline_size = 1
 
 [node name="TextTyper" type="Node2D" node_paths=PackedStringArray("backgroundText", "typedText")]
 script = ExtResource("1_3560m")
@@ -9,11 +16,20 @@ backgroundText = NodePath("backgroundText")
 typedText = NodePath("typedText")
 
 [node name="typedText" type="Label" parent="."]
-offset_right = 382.0
-offset_bottom = 204.0
+modulate = Color(0, 1, 0, 1)
+offset_left = 831.0
+offset_top = 922.0
+offset_right = 1213.0
+offset_bottom = 1126.0
+label_settings = SubResource("LabelSettings_ulfch")
 
 [node name="backgroundText" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0.10980392)
-offset_right = 40.0
-offset_bottom = 23.0
+modulate = Color(0, 1, 0, 0.36862746)
+offset_left = 831.0
+offset_top = 922.0
+offset_right = 923.0
+offset_bottom = 957.0
 text = "testeur"
+label_settings = SubResource("LabelSettings_ulfch")
+
+[node name="MainScene" parent="." instance=ExtResource("2_nb7r3")]

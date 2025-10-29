@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=59 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/OBJECTS/perfusion-pleine.png" id="2_1jq6i"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://drv58v1ygo0kg" path="res://art/PLANT/plante-top.png" id="11_ybfn7"]
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/PLANT/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/PLANT/plante-morte.png" id="13_khoa4"]
+[ext_resource type="Texture2D" uid="uid://bby85lj62h6q6" path="res://art/PLANT/smiley-barredevie.png" id="14_xficm"]
 [ext_resource type="Texture2D" uid="uid://cbuvwqls6xsr4" path="res://art/DIODES OFF/DIODE-ARROSOIR-OFF.png" id="15_3tgni"]
 [ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_cebwr"]
 [ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="15_w72fx"]
@@ -23,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://x448jmv0f1fe" path="res://art/DIODES ON/DIODE-ARROSOIR-ON.png" id="16_u82ob"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
-[ext_resource type="PackedScene" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
+[ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Texture2D" uid="uid://bvmg47sujqcpd" path="res://art/DIODES OFF/DIODE-MESSAGE-OFF.png" id="18_cebwr"]
 [ext_resource type="AudioStream" uid="uid://yqdcdflv07j1" path="res://Sound/SFX_Prayer/SFX_Prayer_Finished.wav" id="18_mqk1k"]
@@ -290,6 +291,10 @@ sprite_frames = SubResource("SpriteFrames_tokr4")
 autoplay = "default"
 centered = false
 
+[node name="SmileyBarredevie" type="Sprite2D" parent="Graphics"]
+position = Vector2(960, 539)
+texture = ExtResource("14_xficm")
+
 [node name="Problems" type="Node" parent="."]
 
 [node name="Soif" parent="Problems" instance=ExtResource("3_twn0q")]
@@ -390,7 +395,6 @@ linkedSolution = ExtResource("16_gg62s")
 polygon = PackedVector2Array(1764, 119, 1615, 176, 1617, 396, 1745, 474, 1916, 421, 1912, 197)
 
 [node name="Sprite2D" parent="Triggers/Arrosoir" index="1"]
-visible = true
 position = Vector2(-2, -5)
 texture = ExtResource("18_ybfn7")
 centered = false
@@ -458,9 +462,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 811.0
+offset_left = 812.0
 offset_top = 598.0
-offset_right = 1157.0
+offset_right = 1158.0
 offset_bottom = 644.0
 grow_horizontal = 2
 grow_vertical = 2

@@ -25,9 +25,9 @@ scale = Vector2(1.2687533, 1.2675925)
 texture = ExtResource("3_ss81f")
 
 [node name="text" type="Label" parent="Microphone/Toppng_comBlankSpeechBubblePngSpeechBubbleClipart1512x1355"]
-offset_left = 309.7529
+offset_left = 312.9056
 offset_top = 18.144638
-offset_right = 871.7218
+offset_right = 874.8745
 offset_bottom = 233.46501
 label_settings = ExtResource("3_iyxqq")
 autowrap_mode = 1

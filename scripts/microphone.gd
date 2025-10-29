@@ -2,13 +2,15 @@ extends Node
 
 @export var text : Label
 @export var countText : Label
-var characterCountMax = 150
+var characterCountMax = 50
 
 signal textCompleted
 signal textProgressed
 
 func _ready() -> void:
+	characterCountMax += Data.problems_sovled * 5
 	countText.text = "0 / " + str(characterCountMax)
+	
 func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventKey and event.is_pressed():
 			var key_event := event as InputEventKey
