@@ -1,0 +1,526 @@
+[gd_scene load_steps=59 format=3 uid="uid://d3f1hiiwkltqs"]
+
+[ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
+[ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/OBJECTS/perfusion/perfusion-pleine.png" id="2_1jq6i"]
+[ext_resource type="Texture2D" uid="uid://cxhachq8bltmh" path="res://art/OBJECTS/arrosoir.png" id="3_1jq6i"]
+[ext_resource type="PackedScene" uid="uid://dpel28tagyukw" path="res://scenes/problem.tscn" id="3_twn0q"]
+[ext_resource type="Texture2D" uid="uid://c2t8sgc27awge" path="res://art/OBJECTS/perfusion/perfusion-vide.png" id="3_vdgl5"]
+[ext_resource type="PackedScene" uid="uid://wlp0aaf4sfw1" path="res://scenes/trigger.tscn" id="4_hhxvm"]
+[ext_resource type="Texture2D" uid="uid://le6y7kk36yi6" path="res://art/OBJECTS/bonnet.png" id="5_hnm5q"]
+[ext_resource type="Texture2D" uid="uid://dwwho8nw00ty2" path="res://art/OBJECTS/chapelet.png" id="6_0eirs"]
+[ext_resource type="Texture2D" uid="uid://5hgtypeg1kk5" path="res://art/OBJECTS/clavier.png" id="7_gg62s"]
+[ext_resource type="Texture2D" uid="uid://dxevplrxlaa0a" path="res://art/OBJECTS/micro.png" id="8_f44mt"]
+[ext_resource type="Texture2D" uid="uid://cv3sefqppmq2o" path="res://art/PLANT/pot-plante.png" id="9_1s0h2"]
+[ext_resource type="Texture2D" uid="uid://g36gsdrbb3u4" path="res://art/OBJECTS/tartine.png" id="10_w72fx"]
+[ext_resource type="Texture2D" uid="uid://drv58v1ygo0kg" path="res://art/PLANT/plante-top.png" id="11_ybfn7"]
+[ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/PLANT/plante-mid.png" id="12_u2jin"]
+[ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/PLANT/plante-morte.png" id="13_khoa4"]
+[ext_resource type="Texture2D" uid="uid://bby85lj62h6q6" path="res://art/PLANT/smiley-barredevie.png" id="14_xficm"]
+[ext_resource type="Texture2D" uid="uid://cbuvwqls6xsr4" path="res://art/DIODES OFF/DIODE-ARROSOIR-OFF.png" id="15_3tgni"]
+[ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_cebwr"]
+[ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="15_w72fx"]
+[ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
+[ext_resource type="AudioStream" uid="uid://dsdif138t8mrw" path="res://Sound/SFX_Cap/SFX_Cap_Put.wav" id="16_tc00d"]
+[ext_resource type="Texture2D" uid="uid://x448jmv0f1fe" path="res://art/DIODES ON/DIODE-ARROSOIR-ON.png" id="16_u82ob"]
+[ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
+[ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
+[ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
+[ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
+[ext_resource type="Texture2D" uid="uid://bvmg47sujqcpd" path="res://art/DIODES OFF/DIODE-MESSAGE-OFF.png" id="18_cebwr"]
+[ext_resource type="AudioStream" uid="uid://yqdcdflv07j1" path="res://Sound/SFX_Prayer/SFX_Prayer_Finished.wav" id="18_mqk1k"]
+[ext_resource type="Texture2D" uid="uid://bj0od340k3y1g" path="res://art/OUTLINES/arosoir-outline.png" id="18_ybfn7"]
+[ext_resource type="Script" uid="uid://fmpv337j2b4t" path="res://scripts/lifebar.gd" id="19_f44mt"]
+[ext_resource type="Texture2D" uid="uid://dofwycj6f5if1" path="res://art/DIODES ON/DIODES-MESSAGE-ON.png" id="19_tc00d"]
+[ext_resource type="Texture2D" uid="uid://d1j734wxx8kio" path="res://art/OUTLINES/micro-outline.png" id="19_u2jin"]
+[ext_resource type="Texture2D" uid="uid://dguslykbx4cj7" path="res://art/DIODES OFF/DIODE-FROID-OFF.png" id="20_cebwr"]
+[ext_resource type="Texture2D" uid="uid://by7cvj3a5f383" path="res://art/OUTLINES/bonnet-outline.png" id="21_khoa4"]
+[ext_resource type="Texture2D" uid="uid://chaqt5he4xj3r" path="res://art/DIODES ON/DIODES-FROID-ON.png" id="21_tc00d"]
+[ext_resource type="Texture2D" uid="uid://jst4jrdybqrt" path="res://art/DIODES OFF/DIODE-PRIER-OFF.png" id="22_mqk1k"]
+[ext_resource type="Texture2D" uid="uid://bfkrkoxhrm1df" path="res://art/DIODES ON/DIODE-PRIER-ON.png" id="23_7hh7r"]
+[ext_resource type="Texture2D" uid="uid://ttub3kaa30gg" path="res://art/OUTLINES/chapelet-outline.png" id="23_x04a8"]
+[ext_resource type="Texture2D" uid="uid://doh3bf6psi0oj" path="res://art/DIODES OFF/DIODE-SANG-OFF.png" id="24_7hh7r"]
+[ext_resource type="Texture2D" uid="uid://bp25gm8wa2ktm" path="res://art/OUTLINES/perfusion-outline.png" id="24_k7hqw"]
+[ext_resource type="Texture2D" uid="uid://ccvwh6t802lds" path="res://art/PLANT/pot-plante-cassé.png" id="25_4bq3f"]
+[ext_resource type="Texture2D" uid="uid://bbborqvui2xlq" path="res://art/DIODES ON/DIODE-SANG-ON.png" id="25_hm6xc"]
+[ext_resource type="Texture2D" uid="uid://nuhmafm2dup0" path="res://art/OUTLINES/clavier-outline.png" id="27_nt7sb"]
+[ext_resource type="AudioStream" uid="uid://dscaiaugd4n8d" path="res://Sound/Amb/Amb_Clock.wav" id="29_3tgni"]
+[ext_resource type="AudioStream" uid="uid://cj1d706o1n7pk" path="res://Sound/Amb/AMB_NextDoor.wav" id="30_u82ob"]
+[ext_resource type="AudioStream" uid="uid://ljyuy4xkxatg" path="res://Sound/Amb/Amb_Tone.wav" id="31_cebwr"]
+[ext_resource type="AudioStream" uid="uid://dmxsthp8ypbfa" path="res://Sound/MSC.wav" id="32_tc00d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x04a8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1jq6i")
+}],
+"loop": true,
+"name": &"pleine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vdgl5")
+}],
+"loop": true,
+"name": &"vide",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7hqw"]
+atlas = ExtResource("11_ybfn7")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tokr4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7hqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ybfn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u2jin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_khoa4")
+}],
+"loop": false,
+"name": &"die",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nt7sb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_3tgni")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_u82ob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3tgni")
+}],
+"loop": true,
+"name": &"on",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqk1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_cebwr")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_tc00d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cebwr")
+}],
+"loop": true,
+"name": &"on",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7hh7r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_cebwr")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_tc00d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cebwr")
+}],
+"loop": true,
+"name": &"on",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2jin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_4bq3f")
+}],
+"loop": false,
+"name": &"on",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hm6xc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_mqk1k")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_7hh7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mqk1k")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qqbtt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_7hh7r")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_hm6xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7hh7r")
+}],
+"loop": true,
+"name": &"on",
+"speed": 6.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s0h2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w72fx"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Graphics"]
+z_index = -5
+scale = Vector2(0.997971, 1.0018518)
+texture = ExtResource("1_w16ng")
+centered = false
+
+[node name="Perfusion" type="AnimatedSprite2D" parent="Graphics"]
+z_index = -4
+sprite_frames = SubResource("SpriteFrames_x04a8")
+animation = &"pleine"
+centered = false
+
+[node name="Arrosoir" type="Sprite2D" parent="Graphics"]
+z_index = -4
+texture = ExtResource("3_1jq6i")
+centered = false
+
+[node name="Bonnet" type="Sprite2D" parent="Graphics"]
+z_index = -4
+texture = ExtResource("5_hnm5q")
+centered = false
+
+[node name="Chapelet" type="Sprite2D" parent="Graphics"]
+z_index = -4
+texture = ExtResource("6_0eirs")
+centered = false
+
+[node name="Clavier" type="Sprite2D" parent="Graphics"]
+z_index = -4
+texture = ExtResource("7_gg62s")
+centered = false
+
+[node name="Micro" type="Sprite2D" parent="Graphics"]
+z_index = -4
+texture = ExtResource("8_f44mt")
+centered = false
+
+[node name="PotPlante" type="Sprite2D" parent="Graphics"]
+z_index = -3
+texture = ExtResource("9_1s0h2")
+centered = false
+
+[node name="Tartine" type="Sprite2D" parent="Graphics"]
+z_index = -4
+texture = ExtResource("10_w72fx")
+centered = false
+
+[node name="PlanteTop" type="AnimatedSprite2D" parent="Graphics"]
+z_index = -4
+sprite_frames = SubResource("SpriteFrames_tokr4")
+autoplay = "default"
+centered = false
+
+[node name="Timer" type="Timer" parent="Graphics/PlanteTop"]
+wait_time = 2.0
+
+[node name="SmileyBarredevie" type="Sprite2D" parent="Graphics"]
+position = Vector2(960, 539)
+texture = ExtResource("14_xficm")
+
+[node name="Problems" type="Node" parent="."]
+
+[node name="Soif" parent="Problems" instance=ExtResource("3_twn0q")]
+unlock_time = 1
+reload_time = 30
+
+[node name="LED" type="AnimatedSprite2D" parent="Problems/Soif"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_nt7sb")
+animation = &"on"
+autoplay = "off"
+centered = false
+script = ExtResource("15_w72fx")
+
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Soif"]
+stream = ExtResource("15_cebwr")
+
+[node name="Triste" parent="Problems" instance=ExtResource("3_twn0q")]
+unlock_time = 15
+reload_time = 30
+
+[node name="LED" type="AnimatedSprite2D" parent="Problems/Triste"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_mqk1k")
+animation = &"on"
+autoplay = "off"
+centered = false
+script = ExtResource("15_w72fx")
+
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Triste"]
+stream = ExtResource("15_cebwr")
+
+[node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
+unlock_time = 30
+reload_time = 30
+
+[node name="LED" type="AnimatedSprite2D" parent="Problems/Froid"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_7hh7r")
+animation = &"on"
+autoplay = "off"
+centered = false
+script = ExtResource("15_w72fx")
+
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Froid"]
+stream = ExtResource("16_tc00d")
+
+[node name="Hack" parent="Problems" instance=ExtResource("3_twn0q")]
+unlock_time = 45
+reload_time = 30
+reload_time_variation = 45.0
+health_boost = 0
+damage_per_second = 0
+
+[node name="Mask" type="AnimatedSprite2D" parent="Problems/Hack"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_u2jin")
+animation = &"off"
+autoplay = "off"
+centered = false
+script = ExtResource("15_w72fx")
+
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Hack"]
+stream = ExtResource("15_cebwr")
+
+[node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
+reload_time = 30
+
+[node name="LED" type="AnimatedSprite2D" parent="Problems/Sombre"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_hm6xc")
+animation = &"on"
+autoplay = "off"
+centered = false
+script = ExtResource("15_w72fx")
+
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Sombre"]
+stream = ExtResource("18_mqk1k")
+
+[node name="Faible" parent="Problems" instance=ExtResource("3_twn0q")]
+unlock_time = 75
+reload_time = 30
+
+[node name="LED" type="AnimatedSprite2D" parent="Problems/Faible"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_qqbtt")
+animation = &"on"
+autoplay = "off"
+centered = false
+script = ExtResource("15_w72fx")
+
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Faible"]
+stream = ExtResource("15_cebwr")
+
+[node name="Triggers" type="Node" parent="."]
+
+[node name="Arrosoir" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+position = Vector2(2, 5)
+linkedProblem = NodePath("../../Problems/Soif")
+linkedSolution = ExtResource("16_gg62s")
+
+[node name="CollisionPolygon2D" parent="Triggers/Arrosoir" index="0"]
+polygon = PackedVector2Array(1764, 119, 1615, 176, 1617, 396, 1745, 474, 1916, 421, 1912, 197)
+
+[node name="Sprite2D" parent="Triggers/Arrosoir" index="1"]
+position = Vector2(-2, -5)
+texture = ExtResource("18_ybfn7")
+centered = false
+
+[node name="Micro" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Triste")
+linkedSolution = ExtResource("17_w72fx")
+
+[node name="CollisionPolygon2D" parent="Triggers/Micro" index="0"]
+polygon = PackedVector2Array(1535, 949, 1445, 915, 1201, 1009, 1223, 1073, 1526, 1062)
+
+[node name="Sprite2D" parent="Triggers/Micro" index="1"]
+texture = ExtResource("19_u2jin")
+centered = false
+
+[node name="Bonnet" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Froid")
+linkedSolution = ExtResource("17_1s0h2")
+
+[node name="CollisionPolygon2D" parent="Triggers/Bonnet" index="0"]
+position = Vector2(1015, -14)
+polygon = PackedVector2Array(279, 756, 183, 810, 157, 939, 267, 970, 388, 927, 375, 790)
+
+[node name="Sprite2D" parent="Triggers/Bonnet" index="1"]
+texture = ExtResource("21_khoa4")
+centered = false
+
+[node name="Chapelet" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Sombre")
+linkedSolution = ExtResource("17_f44mt")
+
+[node name="CollisionPolygon2D" parent="Triggers/Chapelet" index="0"]
+position = Vector2(41, -512)
+polygon = PackedVector2Array(110, 751, 41, 796, 48, 1035, 113, 1077, 173, 1026, 177, 796)
+
+[node name="Sprite2D" parent="Triggers/Chapelet" index="1"]
+texture = ExtResource("23_x04a8")
+centered = false
+
+[node name="Sang" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Faible")
+
+[node name="CollisionPolygon2D" parent="Triggers/Sang" index="0"]
+polygon = PackedVector2Array(415, 260, 416, 527, 604, 534, 613, 264)
+
+[node name="Sprite2D" parent="Triggers/Sang" index="1"]
+texture = ExtResource("24_k7hqw")
+centered = false
+
+[node name="Clavier" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Hack")
+linkedSolution = ExtResource("18_1s0h2")
+
+[node name="CollisionPolygon2D" parent="Triggers/Clavier" index="0"]
+polygon = PackedVector2Array(450, 919, 357, 1006, 361, 1072, 813, 1073, 811, 1006, 744, 920)
+
+[node name="Sprite2D" parent="Triggers/Clavier" index="1"]
+texture = ExtResource("27_nt7sb")
+centered = false
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = -2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 812.0
+offset_top = 598.0
+offset_right = 1158.0
+offset_bottom = 644.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.0028365)
+theme_override_styles/background = SubResource("StyleBoxFlat_1s0h2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w72fx")
+value = 50.0
+show_percentage = false
+script = ExtResource("19_f44mt")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="AmbClock" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("29_3tgni")
+volume_db = -3.0
+autoplay = true
+
+[node name="AmbNextDoor" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("30_u82ob")
+volume_db = 3.0
+autoplay = true
+
+[node name="AmbTone" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("31_cebwr")
+volume_db = 3.0
+autoplay = true
+
+[node name="Msc" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("32_tc00d")
+volume_db = 3.0
+autoplay = true
+
+[connection signal="timeout" from="Graphics/PlanteTop/Timer" to="Graphics/PlanteTop" method="_on_timer_timeout"]
+[connection signal="started" from="Problems/Soif" to="Problems/Soif/LED" method="on"]
+[connection signal="stopped" from="Problems/Soif" to="Problems/Soif/LED" method="off"]
+[connection signal="started" from="Problems/Triste" to="Problems/Triste/LED" method="on"]
+[connection signal="stopped" from="Problems/Triste" to="Problems/Triste/LED" method="off"]
+[connection signal="started" from="Problems/Froid" to="Problems/Froid/LED" method="on"]
+[connection signal="stopped" from="Problems/Froid" to="Problems/Froid/LED" method="off"]
+[connection signal="started" from="Problems/Hack" to="Problems/Hack/Mask" method="on"]
+[connection signal="stopped" from="Problems/Hack" to="Problems/Hack/Mask" method="off"]
+
+[editable path="Problems/Soif"]
+[editable path="Problems/Triste"]
+[editable path="Problems/Froid"]
+[editable path="Problems/Hack"]
+[editable path="Problems/Sombre"]
+[editable path="Problems/Faible"]
+[editable path="Triggers/Arrosoir"]
+[editable path="Triggers/Micro"]
+[editable path="Triggers/Bonnet"]
+[editable path="Triggers/Chapelet"]
+[editable path="Triggers/Sang"]
+[editable path="Triggers/Clavier"]
