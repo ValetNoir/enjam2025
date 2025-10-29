@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Texture2D" uid="uid://bvmg47sujqcpd" path="res://art/DIODES OFF/DIODE-MESSAGE-OFF.png" id="18_cebwr"]
+[ext_resource type="AudioStream" uid="uid://yqdcdflv07j1" path="res://Sound/SFX_Prayer/SFX_Prayer_Finished.wav" id="18_mqk1k"]
 [ext_resource type="Texture2D" uid="uid://bj0od340k3y1g" path="res://art/OUTLINES/arosoir-outline.png" id="18_ybfn7"]
 [ext_resource type="Script" uid="uid://fmpv337j2b4t" path="res://scripts/lifebar.gd" id="19_f44mt"]
 [ext_resource type="Texture2D" uid="uid://dofwycj6f5if1" path="res://art/DIODES ON/DIODES-MESSAGE-ON.png" id="19_tc00d"]
@@ -316,6 +317,9 @@ autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
 
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Triste"]
+stream = ExtResource("15_cebwr")
+
 [node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 30
 reload_time = 30
@@ -348,6 +352,9 @@ autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
 
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Hack"]
+stream = ExtResource("15_cebwr")
+
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 60
 reload_time = 30
@@ -359,6 +366,9 @@ autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
 
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Sombre"]
+stream = ExtResource("18_mqk1k")
+
 [node name="Faible" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 75
 reload_time = 30
@@ -369,6 +379,11 @@ animation = &"on"
 autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
+[node name="LED" parent="Problems/Faible" index="1"]
+position = Vector2(926, 864)
+
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Faible"]
+stream = ExtResource("15_cebwr")
 
 [node name="Triggers" type="Node" parent="."]
 
