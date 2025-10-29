@@ -33,6 +33,7 @@ func stop() -> void:
 	timer.start()
 	is_active = false
 	Data.plant_health = min(Data.plant_health + health_boost, 100)
+	$SFX_Resolve.play()
 
 func _on_timer_timeout() -> void:
 	start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=33 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/perfusion-pleine.png" id="2_1jq6i"]
@@ -15,11 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://drv58v1ygo0kg" path="res://art/plante-top.png" id="11_ybfn7"]
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/plante-morte.png" id="13_khoa4"]
+[ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_x04a8"]
 [ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
+[ext_resource type="AudioStream" uid="uid://dsdif138t8mrw" path="res://Sound/SFX_Cap/SFX_Cap_Put.wav" id="16_k7hqw"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
+[ext_resource type="AudioStream" uid="uid://dy57hhrua1hok" path="res://Sound/SFX_Prayer/SFX_Prayer_Finished.wav" id="17_tokr4"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Script" uid="uid://fmpv337j2b4t" path="res://scripts/lifebar.gd" id="19_f44mt"]
+[ext_resource type="AudioStream" uid="uid://dmxsthp8ypbfa" path="res://Sound/MSC.wav" id="21_w72fx"]
+[ext_resource type="AudioStream" uid="uid://ljyuy4xkxatg" path="res://Sound/Amb/Amb_Tone.wav" id="22_u2jin"]
+[ext_resource type="AudioStream" uid="uid://cj1d706o1n7pk" path="res://Sound/Amb/AMB_NextDoor.wav" id="23_khoa4"]
+[ext_resource type="AudioStream" uid="uid://dscaiaugd4n8d" path="res://Sound/Amb/Amb_Clock.wav" id="24_khoa4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x04a8"]
 animations = [{
@@ -141,6 +148,9 @@ reload_time = 30
 [node name="LED" parent="Problems/Soif" index="1"]
 position = Vector2(862, 794)
 
+[node name="SFX_Resolve" type="AudioStreamPlayer" parent="Problems/Soif"]
+stream = ExtResource("15_x04a8")
+
 [node name="Triste" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 20
 reload_time = 30
@@ -155,12 +165,18 @@ reload_time = 30
 [node name="LED" parent="Problems/Froid" index="1"]
 position = Vector2(994, 787)
 
+[node name="SFX_Resolve" type="AudioStreamPlayer" parent="Problems/Froid"]
+stream = ExtResource("16_k7hqw")
+
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 60
 reload_time = 30
 
 [node name="LED" parent="Problems/Sombre" index="1"]
 position = Vector2(860, 869)
+
+[node name="SFX_Resolve" type="AudioStreamPlayer" parent="Problems/Sombre"]
+stream = ExtResource("17_tokr4")
 
 [node name="Faible" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 75
@@ -244,6 +260,25 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_w72fx")
 value = 50.0
 show_percentage = false
 script = ExtResource("19_f44mt")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="MSC" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("21_w72fx")
+autoplay = true
+
+[node name="AMB_Tone" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("22_u2jin")
+autoplay = true
+
+[node name="AMB_NextDoor" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("23_khoa4")
+autoplay = true
+
+[node name="AMB_Clock" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("24_khoa4")
+volume_db = -6.0
+autoplay = true
 
 [editable path="Problems/Soif"]
 [editable path="Problems/Triste"]

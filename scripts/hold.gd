@@ -6,6 +6,7 @@ extends Area2D
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 var mouse_inside_area = false
+var sfx_playback = false
 
 signal finished()
 
@@ -21,8 +22,14 @@ func _process(_delta: float) -> void:
 	progress_bar.value = timer.wait_time - timer.time_left
 	if mouse_inside_area and Input.is_action_pressed("click"):
 		timer.paused = false
+		if sfx_playback != true:
+			$SFX_Play.play()
+			sfx_playback = true
 	else:
 		timer.paused = true
+		if sfx_playback == true:
+			$SFX_Play.stop()
+			sfx_playback = false
 
 func _on_area_2d_mouse_entered() -> void:
 	progress_bar.show()
