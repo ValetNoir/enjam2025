@@ -1,8 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://yxv8svss26ku"]
 
-[ext_resource type="FontFile" uid="uid://dg2k0qv6ws2gw" path="res://texts/TX_love.ttf" id="1_uqhpd"]
+[ext_resource type="FontFile" uid="uid://th3jc45ns7ec" path="res://texts/DENNE-SKETCHY.ttf" id="1_uqhpd"]
 
 [resource]
 font = ExtResource("1_uqhpd")
-font_size = 50
+font_size = 25
 font_color = Color(1, 0, 0.68235296, 1)

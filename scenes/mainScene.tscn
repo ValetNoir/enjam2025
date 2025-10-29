@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=58 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/OBJECTS/perfusion-pleine.png" id="2_1jq6i"]
@@ -19,8 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_cebwr"]
 [ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="15_w72fx"]
 [ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
-[ext_resource type="Texture2D" uid="uid://x448jmv0f1fe" path="res://art/DIODES ON/DIODE-ARROSOIR-ON.png" id="16_u82ob"]
 [ext_resource type="AudioStream" uid="uid://dsdif138t8mrw" path="res://Sound/SFX_Cap/SFX_Cap_Put.wav" id="16_tc00d"]
+[ext_resource type="Texture2D" uid="uid://x448jmv0f1fe" path="res://art/DIODES ON/DIODE-ARROSOIR-ON.png" id="16_u82ob"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
 [ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
@@ -296,7 +296,7 @@ centered = false
 unlock_time = 1
 reload_time = 30
 
-[node name="LED" type="AnimatedSprite2D" parent="Problems/Soif"]
+[node name="LED2" type="AnimatedSprite2D" parent="Problems/Soif"]
 sprite_frames = SubResource("SpriteFrames_nt7sb")
 animation = &"on"
 autoplay = "off"
@@ -310,7 +310,7 @@ stream = ExtResource("15_cebwr")
 unlock_time = 15
 reload_time = 30
 
-[node name="LED" type="AnimatedSprite2D" parent="Problems/Triste"]
+[node name="LED2" type="AnimatedSprite2D" parent="Problems/Triste"]
 sprite_frames = SubResource("SpriteFrames_mqk1k")
 animation = &"on"
 autoplay = "off"
@@ -324,7 +324,7 @@ stream = ExtResource("15_cebwr")
 unlock_time = 30
 reload_time = 30
 
-[node name="LED" type="AnimatedSprite2D" parent="Problems/Froid"]
+[node name="LED2" type="AnimatedSprite2D" parent="Problems/Froid"]
 sprite_frames = SubResource("SpriteFrames_7hh7r")
 animation = &"on"
 autoplay = "off"
@@ -341,9 +341,6 @@ reload_time_variation = 45.0
 health_boost = 0
 damage_per_second = 0
 
-[node name="LED" parent="Problems/Hack" index="1"]
-visible = false
-
 [node name="Mask" type="AnimatedSprite2D" parent="Problems/Hack"]
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_u2jin")
@@ -358,7 +355,7 @@ stream = ExtResource("15_cebwr")
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 reload_time = 30
 
-[node name="LED" type="AnimatedSprite2D" parent="Problems/Sombre"]
+[node name="LED2" type="AnimatedSprite2D" parent="Problems/Sombre"]
 sprite_frames = SubResource("SpriteFrames_hm6xc")
 animation = &"on"
 autoplay = "off"
@@ -372,14 +369,12 @@ stream = ExtResource("18_mqk1k")
 unlock_time = 75
 reload_time = 30
 
-[node name="LED" type="AnimatedSprite2D" parent="Problems/Faible"]
+[node name="LED2" type="AnimatedSprite2D" parent="Problems/Faible"]
 sprite_frames = SubResource("SpriteFrames_qqbtt")
 animation = &"on"
 autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
-[node name="LED" parent="Problems/Faible" index="1"]
-position = Vector2(926, 864)
 
 [node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Faible"]
 stream = ExtResource("15_cebwr")
@@ -498,18 +493,8 @@ stream = ExtResource("32_tc00d")
 volume_db = 3.0
 autoplay = true
 
-[connection signal="started" from="Problems/Soif" to="Problems/Soif/LED" method="on"]
-[connection signal="stopped" from="Problems/Soif" to="Problems/Soif/LED" method="off"]
-[connection signal="started" from="Problems/Triste" to="Problems/Triste/LED" method="on"]
-[connection signal="stopped" from="Problems/Triste" to="Problems/Triste/LED" method="off"]
-[connection signal="started" from="Problems/Froid" to="Problems/Froid/LED" method="on"]
-[connection signal="stopped" from="Problems/Froid" to="Problems/Froid/LED" method="off"]
 [connection signal="started" from="Problems/Hack" to="Problems/Hack/Mask" method="on"]
 [connection signal="stopped" from="Problems/Hack" to="Problems/Hack/Mask" method="off"]
-[connection signal="started" from="Problems/Sombre" to="Problems/Sombre/LED" method="on"]
-[connection signal="stopped" from="Problems/Sombre" to="Problems/Sombre/LED" method="off"]
-[connection signal="started" from="Problems/Faible" to="Problems/Faible/LED" method="on"]
-[connection signal="stopped" from="Problems/Faible" to="Problems/Faible/LED" method="off"]
 
 [editable path="Problems/Soif"]
 [editable path="Problems/Triste"]
