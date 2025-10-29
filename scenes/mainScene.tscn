@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://dsdif138t8mrw" path="res://Sound/SFX_Cap/SFX_Cap_Put.wav" id="16_tc00d"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
+[ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Texture2D" uid="uid://bj0od340k3y1g" path="res://art/arosoir-outline.png" id="18_ybfn7"]
 [ext_resource type="Script" uid="uid://fmpv337j2b4t" path="res://scripts/lifebar.gd" id="19_f44mt"]
@@ -253,6 +254,7 @@ centered = false
 
 [node name="Micro" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Triste")
+linkedSolution = ExtResource("17_w72fx")
 
 [node name="CollisionPolygon2D" parent="Triggers/Micro" index="0"]
 polygon = PackedVector2Array(1535, 949, 1445, 915, 1201, 1009, 1223, 1073, 1526, 1062)
