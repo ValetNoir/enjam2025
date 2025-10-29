@@ -119,7 +119,7 @@ libraries = {
 autoplay = "wait"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1060.0001, 207.99997)
-rotation = 6.2831855
-scale = Vector2(1.001358e-05, 1.001358e-05)
+position = Vector2(912, 120)
+rotation = -0.4604718
+scale = Vector2(0.44091272, 0.44091272)
 texture = ExtResource("1_npmhx")
