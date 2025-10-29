@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	if not is_active:
 		return
 	
-	Data.plant_health -= damage_per_second * delta
+	Data.plant_health -= (damage_per_second * delta) * (1 + 0.1 * Data.problems_sovled)
 
 func start() -> void:
 	started.emit()
