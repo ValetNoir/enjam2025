@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=26 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/perfusion-pleine.png" id="2_1jq6i"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/plante-morte.png" id="13_khoa4"]
 [ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
+[ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Script" uid="uid://fmpv337j2b4t" path="res://scripts/lifebar.gd" id="19_f44mt"]
@@ -148,7 +149,7 @@ reload_time = 30
 position = Vector2(928, 795)
 
 [node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
-unlock_time = 45
+unlock_time = 1
 reload_time = 30
 
 [node name="LED" parent="Problems/Froid" index="1"]
@@ -193,6 +194,7 @@ polygon = PackedVector2Array(1535, 949, 1445, 915, 1201, 1009, 1223, 1073, 1526,
 
 [node name="Bonnet" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Froid")
+linkedSolution = ExtResource("17_1s0h2")
 
 [node name="CollisionPolygon2D" parent="Triggers/Bonnet" index="0"]
 position = Vector2(1015, -14)

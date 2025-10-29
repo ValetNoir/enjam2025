@@ -19,7 +19,7 @@ run/size/viewport_height=648
 
 [autoload]
 
-Data="*res://scripts/data.gd"
+Data="*res://scenes/data.tscn"
 
 [display]
 
