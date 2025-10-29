@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 @onready var timer: Timer = $Timer
-const GAME_ENDED = preload("uid://cxl0ru2vmjk1f")
+const GAME_ENDED = preload("res://scenes/game_ended.tscn")
 
 func _ready() -> void:
 	Data.end_game.connect(end_game)
