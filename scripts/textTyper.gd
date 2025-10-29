@@ -34,6 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 						sentenceEnded()
 					else:
 						sentenceProgressed.emit()
+						$SFX_Play.play()
 						print(selectedWord[index])
 				
 				
