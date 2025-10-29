@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=61 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/OBJECTS/perfusion/perfusion-pleine.png" id="2_1jq6i"]
@@ -48,6 +48,7 @@
 [ext_resource type="AudioStream" uid="uid://cj1d706o1n7pk" path="res://Sound/Amb/AMB_NextDoor.wav" id="30_u82ob"]
 [ext_resource type="AudioStream" uid="uid://ljyuy4xkxatg" path="res://Sound/Amb/Amb_Tone.wav" id="31_cebwr"]
 [ext_resource type="AudioStream" uid="uid://dmxsthp8ypbfa" path="res://Sound/MSC.wav" id="32_tc00d"]
+[ext_resource type="PackedScene" path="res://scenes/tools/bloodPump.tscn" id="41_xmuta"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x04a8"]
 animations = [{
@@ -447,6 +448,7 @@ centered = false
 
 [node name="Sang" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Faible")
+linkedSolution = ExtResource("41_xmuta")
 
 [node name="CollisionPolygon2D" parent="Triggers/Sang" index="0"]
 polygon = PackedVector2Array(415, 260, 416, 527, 604, 534, 613, 264)
