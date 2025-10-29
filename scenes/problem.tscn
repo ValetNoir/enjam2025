@@ -1,16 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpel28tagyukw"]
+[gd_scene load_steps=2 format=3 uid="uid://dpel28tagyukw"]
 
 [ext_resource type="Script" uid="uid://b12w64jtwfybi" path="res://scripts/problem.gd" id="1_nl8ip"]
-[ext_resource type="PackedScene" uid="uid://ch3vuay0jj1wd" path="res://scenes/led.tscn" id="2_oth8r"]
 
 [node name="Problem" type="Node"]
 script = ExtResource("1_nl8ip")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="LED" parent="." instance=ExtResource("2_oth8r")]
-position = Vector2(1757, 370)
-
-[connection signal="started" from="." to="LED" method="on"]
-[connection signal="stopped" from="." to="LED" method="off"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

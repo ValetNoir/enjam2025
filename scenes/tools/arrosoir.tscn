@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dirsc5es5llxs" path="res://scenes/base_mechanics/hold.tscn" id="1_rhbh6"]
 [ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_xv733"]
-[ext_resource type="Texture2D" uid="uid://hvlhppfmkgwy" path="res://art/arrosoir_cursor.png" id="3_umps4"]
+[ext_resource type="Texture2D" uid="uid://hvlhppfmkgwy" path="res://art/CURSORS/arrosoir_cursor.png" id="3_umps4"]
 [ext_resource type="AudioStream" uid="uid://cgrpp4l1cjhja" path="res://Sound/SFX_Water/SFX_Water.wav" id="4_62q00"]
 [ext_resource type="AudioStream" uid="uid://dn4vle3ysj50u" path="res://Sound/SFX_Water/SFX_Water_Take.wav" id="5_xfg7e"]
 

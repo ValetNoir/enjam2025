@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_ama5w"]
 [ext_resource type="Script" uid="uid://c5tqxoxdihhc0" path="res://scripts/bonnet_creator.gd" id="2_1h8lt"]
 [ext_resource type="PackedScene" uid="uid://cehaeg2xg0uko" path="res://scenes/bonnet_sprite.tscn" id="3_1h8lt"]
-[ext_resource type="Texture2D" uid="uid://boc6pb18odbor" path="res://art/bonnet_cursor.png" id="5_44iq3"]
+[ext_resource type="Texture2D" uid="uid://boc6pb18odbor" path="res://art/CURSORS/bonnet_cursor.png" id="5_44iq3"]
 [ext_resource type="AudioStream" uid="uid://cdg7c75uqjiah" path="res://Sound/SFX_Cap/SFX_Cap_Take.wav" id="6_wgokl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88lr0"]
