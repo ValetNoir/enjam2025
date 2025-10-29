@@ -1,3 +1,58 @@
-[gd_scene format=3 uid="uid://diu7vgysp37lo"]
+[gd_scene load_steps=10 format=3 uid="uid://diu7vgysp37lo"]
 
-[node name="BloodPump" type="Node"]
+[ext_resource type="Script" uid="uid://pcxn3d1bu0m7" path="res://scripts/pump_manager.gd" id="1_a248v"]
+[ext_resource type="Texture2D" path="res://art/OBJECTS/perfusion-pleine.png" id="1_c44h7"]
+[ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_qjjp1"]
+[ext_resource type="Texture2D" uid="uid://gkw6t275ap8e" path="res://art/OBJECTS/perfusion/perfusion1.6.png" id="2_8gx40"]
+[ext_resource type="Texture2D" uid="uid://caiiitf1ql6vl" path="res://art/OBJECTS/perfusion/perfusion1.5.png" id="3_vrkdq"]
+[ext_resource type="Texture2D" uid="uid://dcegg4pl3utku" path="res://art/OBJECTS/perfusion/perfusion1.3.png" id="5_qjjp1"]
+[ext_resource type="Texture2D" uid="uid://b55w2r7f4miww" path="res://art/OBJECTS/perfusion/perfusion1.2.png" id="6_4yuky"]
+[ext_resource type="Texture2D" uid="uid://b7gl0v6e2jyxp" path="res://art/OBJECTS/perfusion/perfusion-1.1.png" id="7_4dtlp"]
+[ext_resource type="Texture2D" uid="uid://c2t8sgc27awge" path="res://art/OBJECTS/perfusion/perfusion-vide.png" id="8_23xxe"]
+
+[node name="BloodPumpSolution" type="Node"]
+script = ExtResource("1_qjjp1")
+
+[node name="PumpManager" type="Node" parent="." node_paths=PackedStringArray("pumps", "pumpArea")]
+script = ExtResource("1_a248v")
+pumps = [NodePath("../Pumps/0"), NodePath("../Pumps/1"), NodePath("../Pumps/2"), NodePath("../Pumps/3"), NodePath("../Pumps/4"), NodePath("../Pumps/5"), NodePath("../Pumps/6")]
+pumpArea = NodePath("../Pumps/pumpArea")
+
+[node name="Pumps" type="Node" parent="."]
+
+[node name="6" type="Sprite2D" parent="Pumps"]
+position = Vector2(960, 538)
+texture = ExtResource("2_8gx40")
+
+[node name="5" type="Sprite2D" parent="Pumps"]
+position = Vector2(960, 538)
+texture = ExtResource("3_vrkdq")
+
+[node name="4" type="Sprite2D" parent="Pumps"]
+position = Vector2(960, 538)
+texture = ExtResource("1_c44h7")
+
+[node name="3" type="Sprite2D" parent="Pumps"]
+position = Vector2(960, 538)
+texture = ExtResource("5_qjjp1")
+
+[node name="2" type="Sprite2D" parent="Pumps"]
+position = Vector2(960, 538)
+texture = ExtResource("6_4yuky")
+
+[node name="1" type="Sprite2D" parent="Pumps"]
+position = Vector2(960, 538)
+texture = ExtResource("7_4dtlp")
+
+[node name="0" type="Sprite2D" parent="Pumps"]
+position = Vector2(960, 538)
+texture = ExtResource("8_23xxe")
+
+[node name="pumpArea" type="Area2D" parent="Pumps"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pumps/pumpArea"]
+position = Vector2(483, 405)
+polygon = PackedVector2Array(-3, 112, 103, 69, 101, -96, -23, -80)
+
+[connection signal="finished" from="PumpManager" to="." method="finish"]
+[connection signal="input_event" from="Pumps/pumpArea" to="PumpManager" method="_on_pump_area_input_event"]
