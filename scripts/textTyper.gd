@@ -30,22 +30,23 @@ func _unhandled_input(event: InputEvent) -> void:
 					typedText.text = typedText.text.left(typedText.text.length() - 1)
 					typedText.text += (letter.to_lower() + "|")
 					index += 1
+					$SFX_Play.play()
 					if index >= selectedWord.length():
 						sentenceEnded()
+						$SFX_Play.play()
 					else:
 						sentenceProgressed.emit()
-						print(selectedWord[index])
 						
 				elif letter.to_upper() == selectedWord[index]:
 					typedText.text = typedText.text.left(typedText.text.length() - 1)
 					typedText.text += (letter.to_upper() + "|")
 					index += 1
+					$SFX_Play.play()
 					if index >= selectedWord.length():
 						sentenceEnded()
+						$SFX_Play.play()
 					else:
 						sentenceProgressed.emit()
-						$SFX_Play.play()
-						print(selectedWord[index])
 				
 				
 			

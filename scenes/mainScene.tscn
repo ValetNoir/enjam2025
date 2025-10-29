@@ -1,10 +1,10 @@
 [gd_scene load_steps=59 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
-[ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/OBJECTS/perfusion-pleine.png" id="2_1jq6i"]
+[ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/OBJECTS/perfusion/perfusion-pleine.png" id="2_1jq6i"]
 [ext_resource type="Texture2D" uid="uid://cxhachq8bltmh" path="res://art/OBJECTS/arrosoir.png" id="3_1jq6i"]
 [ext_resource type="PackedScene" uid="uid://dpel28tagyukw" path="res://scenes/problem.tscn" id="3_twn0q"]
-[ext_resource type="Texture2D" uid="uid://c2t8sgc27awge" path="res://art/OBJECTS/perfusion-vide.png" id="3_vdgl5"]
+[ext_resource type="Texture2D" uid="uid://c2t8sgc27awge" path="res://art/OBJECTS/perfusion/perfusion-vide.png" id="3_vdgl5"]
 [ext_resource type="PackedScene" uid="uid://wlp0aaf4sfw1" path="res://scenes/trigger.tscn" id="4_hhxvm"]
 [ext_resource type="Texture2D" uid="uid://le6y7kk36yi6" path="res://art/OBJECTS/bonnet.png" id="5_hnm5q"]
 [ext_resource type="Texture2D" uid="uid://dwwho8nw00ty2" path="res://art/OBJECTS/chapelet.png" id="6_0eirs"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://drv58v1ygo0kg" path="res://art/PLANT/plante-top.png" id="11_ybfn7"]
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/PLANT/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/PLANT/plante-morte.png" id="13_khoa4"]
-[ext_resource type="Script" uid="uid://kah3ggscduyh" path="res://scripts/plante_top.gd" id="14_xficm"]
 [ext_resource type="Texture2D" uid="uid://bby85lj62h6q6" path="res://art/PLANT/smiley-barredevie.png" id="14_xficm"]
 [ext_resource type="Texture2D" uid="uid://cbuvwqls6xsr4" path="res://art/DIODES OFF/DIODE-ARROSOIR-OFF.png" id="15_3tgni"]
 [ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_cebwr"]
@@ -25,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://x448jmv0f1fe" path="res://art/DIODES ON/DIODE-ARROSOIR-ON.png" id="16_u82ob"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
-[ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Texture2D" uid="uid://bvmg47sujqcpd" path="res://art/DIODES OFF/DIODE-MESSAGE-OFF.png" id="18_cebwr"]
@@ -293,7 +291,6 @@ z_index = -4
 sprite_frames = SubResource("SpriteFrames_tokr4")
 autoplay = "default"
 centered = false
-script = ExtResource("14_xficm")
 
 [node name="Timer" type="Timer" parent="Graphics/PlanteTop"]
 wait_time = 2.0

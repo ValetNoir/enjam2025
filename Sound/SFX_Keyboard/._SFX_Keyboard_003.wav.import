@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/._SFX_Keyboard_003.wav-728b39e0c43ace43b562b1
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
