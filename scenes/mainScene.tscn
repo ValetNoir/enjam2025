@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=60 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/OBJECTS/perfusion/perfusion-pleine.png" id="2_1jq6i"]
@@ -15,9 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://drv58v1ygo0kg" path="res://art/PLANT/plante-top.png" id="11_ybfn7"]
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/PLANT/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/PLANT/plante-morte.png" id="13_khoa4"]
-[ext_resource type="Texture2D" uid="uid://bby85lj62h6q6" path="res://art/PLANT/smiley-barredevie.png" id="14_xficm"]
+[ext_resource type="Script" uid="uid://kah3ggscduyh" path="res://scripts/plante_top.gd" id="14_xficm"]
 [ext_resource type="Texture2D" uid="uid://cbuvwqls6xsr4" path="res://art/DIODES OFF/DIODE-ARROSOIR-OFF.png" id="15_3tgni"]
 [ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_cebwr"]
+[ext_resource type="Texture2D" uid="uid://bby85lj62h6q6" path="res://art/PLANT/smiley-barredevie.png" id="15_f8v4a"]
 [ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="15_w72fx"]
 [ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
 [ext_resource type="AudioStream" uid="uid://dsdif138t8mrw" path="res://Sound/SFX_Cap/SFX_Cap_Put.wav" id="16_tc00d"]
@@ -233,10 +234,6 @@ bg_color = Color(0, 1, 0, 1)
 
 [node name="MainScene" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
-follow_viewport_enabled = true
-
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Graphics"]
@@ -291,13 +288,14 @@ z_index = -4
 sprite_frames = SubResource("SpriteFrames_tokr4")
 autoplay = "default"
 centered = false
+script = ExtResource("14_xficm")
 
 [node name="Timer" type="Timer" parent="Graphics/PlanteTop"]
 wait_time = 2.0
 
 [node name="SmileyBarredevie" type="Sprite2D" parent="Graphics"]
 position = Vector2(960, 539)
-texture = ExtResource("14_xficm")
+texture = ExtResource("15_f8v4a")
 
 [node name="Problems" type="Node" parent="."]
 
@@ -330,12 +328,11 @@ centered = false
 script = ExtResource("15_w72fx")
 
 [node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Triste"]
-stream = ExtResource("15_cebwr")
 
 [node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 30
 reload_time = 30
-damage_per_second = 3
+damage_per_second = 2
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Froid"]
 z_index = -2
@@ -369,7 +366,7 @@ stream = ExtResource("15_cebwr")
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 60
 reload_time = 30
-damage_per_second = 4
+damage_per_second = 3
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Sombre"]
 z_index = -2
@@ -385,7 +382,7 @@ stream = ExtResource("18_mqk1k")
 [node name="Faible" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 75
 reload_time = 30
-damage_per_second = 5
+damage_per_second = 3
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Faible"]
 z_index = -2

@@ -30,6 +30,7 @@ stream_9/stream = ExtResource("12_p3uyg")
 script = ExtResource("1_6tkmx")
 
 [node name="TextTyper" parent="." instance=ExtResource("2_pf55w")]
+wordList = Array[String](["plantsudo rm -rf", "restart plant processor", "Démarre stp plz", "func plant(life: Water)"])
 
 [node name="SFX_Play" type="AudioStreamPlayer" parent="TextTyper"]
 stream = SubResource("AudioStreamRandomizer_utgts")

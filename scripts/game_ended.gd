@@ -1,7 +1,7 @@
 extends Node
 
-const MAIN_SCENE = preload("uid://d3f1hiiwkltqs")
-const TROLL = preload("uid://63x1dtlcbe8d")
+var MAIN_SCENE = load("res://scenes/mainScene.tscn")
+var TROLL = load("res://scenes/troll.tscn")
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(null)

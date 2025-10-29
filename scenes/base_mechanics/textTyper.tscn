@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://4dpskel2qhru"]
+[gd_scene load_steps=4 format=3 uid="uid://4dpskel2qhru"]
 
 [ext_resource type="Script" uid="uid://ys5wknolbgnj" path="res://scripts/textTyper.gd" id="1_3560m"]
 [ext_resource type="FontFile" uid="uid://dkfqago3ir6to" path="res://texts/Asai-Analogue.ttf" id="2_jy60f"]
-[ext_resource type="PackedScene" uid="uid://d3f1hiiwkltqs" path="res://scenes/mainScene.tscn" id="2_nb7r3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ulfch"]
 font = ExtResource("2_jy60f")
@@ -31,5 +30,3 @@ offset_right = 923.0
 offset_bottom = 957.0
 text = "testeur"
 label_settings = SubResource("LabelSettings_ulfch")
-
-[node name="MainScene" parent="." instance=ExtResource("2_nb7r3")]
