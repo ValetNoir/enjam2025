@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cehaeg2xg0uko"]
 
-[ext_resource type="Texture2D" uid="uid://cklenmopci5v4" path="res://art/bonnet_crop.png" id="1_npmhx"]
+[ext_resource type="Texture2D" uid="uid://cklenmopci5v4" path="res://art/OBJECTS/bonnet_crop.png" id="1_npmhx"]
 
 [sub_resource type="Animation" id="Animation_sit6n"]
 length = 0.001

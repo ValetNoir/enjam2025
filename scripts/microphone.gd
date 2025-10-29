@@ -5,7 +5,10 @@ extends Node
 var characterCountMax = 150
 
 signal textCompleted
+signal textProgressed
 
+func _ready() -> void:
+	countText.text = "0 / " + str(characterCountMax)
 func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventKey and event.is_pressed():
 			var key_event := event as InputEventKey
@@ -17,6 +20,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				
 				if text.text.length() >= characterCountMax:
 					textCompleted.emit()
+				else:
+					textProgressed.emit()
 				
 				
 				

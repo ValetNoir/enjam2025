@@ -18,6 +18,8 @@ func _ready() -> void:
 	colored_pattern.add_point(points[0])
 
 func _process(_delta: float) -> void:
+	var sfx_volume = remap(pointer.progress, 0.0, 1800.0, -30.0, 0.0)
+	$SFX_Play.set_volume_db(sfx_volume)
 	if pointer.progress > curve.get_baked_length() - 25 or current_point_index + 1 == points.size():
 		if not has_finished:
 			colored_pattern.add_point(points[points.size() - 1])
