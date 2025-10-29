@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bak553ieyl5g7"
-path="res://.godot/imported/chapelet-souris.png-897ace895c0cba1051bc6322446d2729.ctex"
+uid="uid://cxhachq8bltmh"
+path="res://.godot/imported/arrosoir.png-e5bd5ab2b3b4daf37171b2816da443cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/chapelet-souris.png"
-dest_files=["res://.godot/imported/chapelet-souris.png-897ace895c0cba1051bc6322446d2729.ctex"]
+source_file="res://art/arrosoir.png"
+dest_files=["res://.godot/imported/arrosoir.png-e5bd5ab2b3b4daf37171b2816da443cb.ctex"]
 
 [params]
 

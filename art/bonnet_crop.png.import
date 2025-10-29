@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bak553ieyl5g7"
-path="res://.godot/imported/chapelet-souris.png-897ace895c0cba1051bc6322446d2729.ctex"
+uid="uid://cklenmopci5v4"
+path="res://.godot/imported/bonnet_crop.png-f09b5b7f65ad5e396dd605d712494d9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/chapelet-souris.png"
-dest_files=["res://.godot/imported/chapelet-souris.png-897ace895c0cba1051bc6322446d2729.ctex"]
+source_file="res://art/bonnet_crop.png"
+dest_files=["res://.godot/imported/bonnet_crop.png-f09b5b7f65ad5e396dd605d712494d9f.ctex"]
 
 [params]
 

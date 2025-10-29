@@ -32,7 +32,7 @@ func stop() -> void:
 	timer.wait_time = reload_time + reload_time_variation * randf()
 	timer.start()
 	is_active = false
-	Data.plant_health += health_boost
+	Data.plant_health = min(Data.plant_health + health_boost, 100)
 
 func _on_timer_timeout() -> void:
 	start()

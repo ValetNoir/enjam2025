@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8eamavqxeex6"
-path="res://.godot/imported/plante.png-51464f8e9a74f3904731c0953584623c.ctex"
+uid="uid://boc6pb18odbor"
+path="res://.godot/imported/bonnet_cursor.png-7e5a346977f195998de9da89d57c6fdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/plante.png"
-dest_files=["res://.godot/imported/plante.png-51464f8e9a74f3904731c0953584623c.ctex"]
+source_file="res://art/bonnet_cursor.png"
+dest_files=["res://.godot/imported/bonnet_cursor.png-7e5a346977f195998de9da89d57c6fdf.ctex"]
 
 [params]
 

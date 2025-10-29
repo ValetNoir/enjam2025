@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="1_126cy"]
 [ext_resource type="Texture2D" uid="uid://chgswxgrfdo5d" path="res://art/icon.svg" id="1_soycm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wuehv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_soycm"]
 atlas = ExtResource("1_soycm")
-region = Rect2(0, 0, 128, 128)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcctn"]
 atlas = ExtResource("1_soycm")
@@ -19,7 +19,7 @@ region = Rect2(64, 64, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wuehv")
+"texture": SubResource("AtlasTexture_soycm")
 }],
 "loop": true,
 "name": &"off",
@@ -38,7 +38,8 @@ animations = [{
 }]
 
 [node name="LED" type="AnimatedSprite2D"]
+z_index = -2
 sprite_frames = SubResource("SpriteFrames_mdyer")
-animation = &"on"
+animation = &"off"
 autoplay = "off"
 script = ExtResource("1_126cy")
