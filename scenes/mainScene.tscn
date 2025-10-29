@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d3f1hiiwkltqs"]
+[gd_scene load_steps=36 format=3 uid="uid://d3f1hiiwkltqs"]
 
 [ext_resource type="Texture2D" uid="uid://d0vfo4xdjtr4y" path="res://art/bkground-enjam2025.png" id="1_w16ng"]
 [ext_resource type="Texture2D" uid="uid://cbxbmudi1m1wb" path="res://art/perfusion-pleine.png" id="2_1jq6i"]
@@ -15,12 +15,20 @@
 [ext_resource type="Texture2D" uid="uid://drv58v1ygo0kg" path="res://art/plante-top.png" id="11_ybfn7"]
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/plante-morte.png" id="13_khoa4"]
+[ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="15_w72fx"]
 [ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
 [ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
+[ext_resource type="Texture2D" uid="uid://bj0od340k3y1g" path="res://art/arosoir-outline.png" id="18_ybfn7"]
 [ext_resource type="Script" uid="uid://fmpv337j2b4t" path="res://scripts/lifebar.gd" id="19_f44mt"]
+[ext_resource type="Texture2D" uid="uid://d1j734wxx8kio" path="res://art/micro-outline.png" id="19_u2jin"]
+[ext_resource type="Texture2D" uid="uid://by7cvj3a5f383" path="res://art/bonnet-outline.png" id="21_khoa4"]
+[ext_resource type="Texture2D" uid="uid://ttub3kaa30gg" path="res://art/chapelet-outline.png" id="23_x04a8"]
+[ext_resource type="Texture2D" uid="uid://bp25gm8wa2ktm" path="res://art/perfusion-outline.png" id="24_k7hqw"]
+[ext_resource type="Texture2D" uid="uid://cf0rjqdo2nwje" path="res://art/tartine-outline.png" id="25_tokr4"]
+[ext_resource type="Texture2D" uid="uid://nuhmafm2dup0" path="res://art/clavier-outline.png" id="27_nt7sb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x04a8"]
 animations = [{
@@ -68,6 +76,29 @@ animations = [{
 "loop": false,
 "name": &"die",
 "speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybfn7"]
+atlas = ExtResource("9_1s0h2")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2jin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybfn7")
+}],
+"loop": true,
+"name": &"on",
+"speed": 0.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s0h2"]
@@ -143,18 +174,36 @@ reload_time = 30
 position = Vector2(862, 794)
 
 [node name="Triste" parent="Problems" instance=ExtResource("3_twn0q")]
-unlock_time = 20
+unlock_time = 15
 reload_time = 30
 
 [node name="LED" parent="Problems/Triste" index="1"]
 position = Vector2(928, 795)
 
 [node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
-unlock_time = 1
+unlock_time = 30
 reload_time = 30
 
 [node name="LED" parent="Problems/Froid" index="1"]
 position = Vector2(994, 787)
+
+[node name="Hack" parent="Problems" instance=ExtResource("3_twn0q")]
+unlock_time = 1
+reload_time = 30
+reload_time_variation = 45.0
+health_boost = 0
+damage_per_second = 0
+
+[node name="Mask" type="AnimatedSprite2D" parent="Problems/Hack"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_u2jin")
+animation = &"on"
+autoplay = "off"
+centered = false
+script = ExtResource("15_w72fx")
+
+[node name="LED" parent="Problems/Hack" index="2"]
+visible = false
 
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 60
@@ -187,12 +236,20 @@ linkedSolution = ExtResource("16_gg62s")
 [node name="CollisionPolygon2D" parent="Triggers/Arrosoir" index="0"]
 polygon = PackedVector2Array(1764, 119, 1615, 176, 1617, 396, 1745, 474, 1916, 421, 1912, 197)
 
+[node name="Sprite2D" parent="Triggers/Arrosoir" index="1"]
+texture = ExtResource("18_ybfn7")
+centered = false
+
 [node name="Micro" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Triste")
 linkedSolution = ExtResource("17_w72fx")
 
 [node name="CollisionPolygon2D" parent="Triggers/Micro" index="0"]
 polygon = PackedVector2Array(1535, 949, 1445, 915, 1201, 1009, 1223, 1073, 1526, 1062)
+
+[node name="Sprite2D" parent="Triggers/Micro" index="1"]
+texture = ExtResource("19_u2jin")
+centered = false
 
 [node name="Bonnet" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Froid")
@@ -202,6 +259,10 @@ linkedSolution = ExtResource("17_1s0h2")
 position = Vector2(1015, -14)
 polygon = PackedVector2Array(279, 756, 183, 810, 157, 939, 267, 970, 388, 927, 375, 790)
 
+[node name="Sprite2D" parent="Triggers/Bonnet" index="1"]
+texture = ExtResource("21_khoa4")
+centered = false
+
 [node name="Chapelet" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Sombre")
 linkedSolution = ExtResource("17_f44mt")
@@ -210,11 +271,19 @@ linkedSolution = ExtResource("17_f44mt")
 position = Vector2(41, -512)
 polygon = PackedVector2Array(110, 751, 41, 796, 48, 1035, 113, 1077, 173, 1026, 177, 796)
 
+[node name="Sprite2D" parent="Triggers/Chapelet" index="1"]
+texture = ExtResource("23_x04a8")
+centered = false
+
 [node name="Sang" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Faible")
 
 [node name="CollisionPolygon2D" parent="Triggers/Sang" index="0"]
 polygon = PackedVector2Array(415, 260, 416, 527, 604, 534, 613, 264)
+
+[node name="Sprite2D" parent="Triggers/Sang" index="1"]
+texture = ExtResource("24_k7hqw")
+centered = false
 
 [node name="Tartine" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Faim")
@@ -222,14 +291,23 @@ linkedProblem = NodePath("../../Problems/Faim")
 [node name="CollisionPolygon2D" parent="Triggers/Tartine" index="0"]
 polygon = PackedVector2Array(11, 948, 13, 1040, 239, 1043, 242, 953)
 
-[node name="Clavier" parent="Triggers" instance=ExtResource("4_hhxvm")]
+[node name="Sprite2D" parent="Triggers/Tartine" index="1"]
+texture = ExtResource("25_tokr4")
+centered = false
+
+[node name="Clavier" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
+linkedProblem = NodePath("../../Problems/Hack")
 linkedSolution = ExtResource("18_1s0h2")
 
 [node name="CollisionPolygon2D" parent="Triggers/Clavier" index="0"]
 polygon = PackedVector2Array(450, 919, 357, 1006, 361, 1072, 813, 1073, 811, 1006, 744, 920)
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-z_index = -1
+[node name="Sprite2D" parent="Triggers/Clavier" index="1"]
+texture = ExtResource("27_nt7sb")
+centered = false
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = -2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -241,15 +319,21 @@ offset_right = 1157.0
 offset_bottom = 644.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.0028365)
 theme_override_styles/background = SubResource("StyleBoxFlat_1s0h2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_w72fx")
 value = 50.0
 show_percentage = false
 script = ExtResource("19_f44mt")
 
+[connection signal="started" from="Problems/Hack" to="Problems/Hack/Mask" method="on"]
+[connection signal="stopped" from="Problems/Hack" to="Problems/Hack/Mask" method="off"]
+
 [editable path="Problems/Soif"]
 [editable path="Problems/Triste"]
 [editable path="Problems/Froid"]
+[editable path="Problems/Hack"]
+[editable path="Problems/Hack/LED"]
 [editable path="Problems/Sombre"]
 [editable path="Problems/Faible"]
 [editable path="Problems/Faim"]
