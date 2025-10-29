@@ -16,11 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/PLANT/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/PLANT/plante-morte.png" id="13_khoa4"]
 [ext_resource type="Texture2D" uid="uid://cbuvwqls6xsr4" path="res://art/DIODES OFF/DIODE-ARROSOIR-OFF.png" id="15_3tgni"]
+[ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_cebwr"]
 [ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="15_w72fx"]
 [ext_resource type="PackedScene" uid="uid://djcm1prlftyxe" path="res://scenes/tools/arrosoir.tscn" id="16_gg62s"]
 [ext_resource type="Texture2D" uid="uid://x448jmv0f1fe" path="res://art/DIODES ON/DIODE-ARROSOIR-ON.png" id="16_u82ob"]
+[ext_resource type="AudioStream" uid="uid://dsdif138t8mrw" path="res://Sound/SFX_Cap/SFX_Cap_Put.wav" id="16_tc00d"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
+[ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Texture2D" uid="uid://bvmg47sujqcpd" path="res://art/DIODES OFF/DIODE-MESSAGE-OFF.png" id="18_cebwr"]
 [ext_resource type="Texture2D" uid="uid://bj0od340k3y1g" path="res://art/OUTLINES/arosoir-outline.png" id="18_ybfn7"]
@@ -37,6 +40,10 @@
 [ext_resource type="Texture2D" uid="uid://bp25gm8wa2ktm" path="res://art/OUTLINES/perfusion-outline.png" id="24_k7hqw"]
 [ext_resource type="Texture2D" uid="uid://bbborqvui2xlq" path="res://art/DIODES ON/DIODE-SANG-ON.png" id="25_hm6xc"]
 [ext_resource type="Texture2D" uid="uid://nuhmafm2dup0" path="res://art/OUTLINES/clavier-outline.png" id="27_nt7sb"]
+[ext_resource type="AudioStream" uid="uid://dscaiaugd4n8d" path="res://Sound/Amb/Amb_Clock.wav" id="29_3tgni"]
+[ext_resource type="AudioStream" uid="uid://cj1d706o1n7pk" path="res://Sound/Amb/AMB_NextDoor.wav" id="30_u82ob"]
+[ext_resource type="AudioStream" uid="uid://ljyuy4xkxatg" path="res://Sound/Amb/Amb_Tone.wav" id="31_cebwr"]
+[ext_resource type="AudioStream" uid="uid://dmxsthp8ypbfa" path="res://Sound/MSC.wav" id="32_tc00d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x04a8"]
 animations = [{
@@ -295,6 +302,9 @@ autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
 
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Soif"]
+stream = ExtResource("15_cebwr")
+
 [node name="Triste" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 15
 reload_time = 30
@@ -317,12 +327,18 @@ autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
 
+[node name="SFX_Solution" type="AudioStreamPlayer" parent="Problems/Froid"]
+stream = ExtResource("16_tc00d")
+
 [node name="Hack" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 45
 reload_time = 30
 reload_time_variation = 45.0
 health_boost = 0
 damage_per_second = 0
+
+[node name="LED" parent="Problems/Hack" index="1"]
+visible = false
 
 [node name="Mask" type="AnimatedSprite2D" parent="Problems/Hack"]
 z_index = -1
@@ -372,6 +388,7 @@ centered = false
 
 [node name="Micro" parent="Triggers" node_paths=PackedStringArray("linkedProblem") instance=ExtResource("4_hhxvm")]
 linkedProblem = NodePath("../../Problems/Triste")
+linkedSolution = ExtResource("17_w72fx")
 
 [node name="CollisionPolygon2D" parent="Triggers/Micro" index="0"]
 polygon = PackedVector2Array(1535, 949, 1445, 915, 1201, 1009, 1223, 1073, 1526, 1062)
@@ -444,6 +461,25 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_w72fx")
 value = 50.0
 show_percentage = false
 script = ExtResource("19_f44mt")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="AmbClock" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("29_3tgni")
+volume_db = -6.0
+autoplay = true
+
+[node name="AmbNextDoor" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("30_u82ob")
+autoplay = true
+
+[node name="AmbTone" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("31_cebwr")
+autoplay = true
+
+[node name="Msc" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("32_tc00d")
+autoplay = true
 
 [connection signal="started" from="Problems/Soif" to="Problems/Soif/LED" method="on"]
 [connection signal="stopped" from="Problems/Soif" to="Problems/Soif/LED" method="off"]
