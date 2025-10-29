@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 			sfx_playback = true
 	else:
 		timer.paused = true
-		#$SFX_Play.stop()
+		$SFX_Play.stop()
 		sfx_playback = false
 
 func _on_area_2d_mouse_entered() -> void:

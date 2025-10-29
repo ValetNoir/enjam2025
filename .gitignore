@@ -1,3 +1,27 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+Sound/SFX_Keyboard/._SFX_Keyboard_010.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_009.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_008.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_007.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_006.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_005.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_004.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_003.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_002.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_001.wav.import
+scripts/._textTyper.gd
+scenes/tools/._bloodPump.tscn
+scenes/tools/._arrosoir.tscn
+scenes/base_mechanics/keyboardMashing.tscn
+Sound/SFX_Keyboard/._SFX_Keyboard_010.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_009.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_008.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_007.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_006.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_005.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_004.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_003.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_002.wav.import
+Sound/SFX_Keyboard/._SFX_Keyboard_001.wav.import
