@@ -4,6 +4,7 @@ var plant_health = 100
 var is_occupied = false
 
 var plant_died = false
+var problems_sovled = 0
 
 signal end_game()
 

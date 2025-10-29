@@ -1,11 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq4khbqrbmc84"]
+[gd_scene load_steps=14 format=3 uid="uid://dq4khbqrbmc84"]
 
 [ext_resource type="Script" uid="uid://d0tx2vyl2tf68" path="res://scripts/solution.gd" id="1_6tkmx"]
 [ext_resource type="PackedScene" uid="uid://4dpskel2qhru" path="res://scenes/base_mechanics/textTyper.tscn" id="2_pf55w"]
+[ext_resource type="AudioStream" uid="uid://bgp8hfmn8s3oo" path="res://Sound/SFX_Keyboard/SFX_Keyboard_001.wav" id="3_8cea2"]
+[ext_resource type="AudioStream" uid="uid://btmqd6503v1yd" path="res://Sound/SFX_Keyboard/SFX_Keyboard_002.wav" id="4_0o4j2"]
+[ext_resource type="AudioStream" uid="uid://cvqjc4ipck8a6" path="res://Sound/SFX_Keyboard/SFX_Keyboard_003.wav" id="5_soms1"]
+[ext_resource type="AudioStream" uid="uid://boetc1aixclf7" path="res://Sound/SFX_Keyboard/SFX_Keyboard_004.wav" id="6_3ht43"]
+[ext_resource type="AudioStream" uid="uid://ckq1vfpnrr2o3" path="res://Sound/SFX_Keyboard/SFX_Keyboard_005.wav" id="7_qmnk1"]
+[ext_resource type="AudioStream" uid="uid://c8kwn1fdfuxg5" path="res://Sound/SFX_Keyboard/SFX_Keyboard_006.wav" id="8_boygh"]
+[ext_resource type="AudioStream" uid="uid://bjlotboldqpm3" path="res://Sound/SFX_Keyboard/SFX_Keyboard_007.wav" id="9_mwm7m"]
+[ext_resource type="AudioStream" uid="uid://dgixjkr6x3csw" path="res://Sound/SFX_Keyboard/SFX_Keyboard_008.wav" id="10_dabhx"]
+[ext_resource type="AudioStream" uid="uid://cpn68txteclt4" path="res://Sound/SFX_Keyboard/SFX_Keyboard_009.wav" id="11_vygpc"]
+[ext_resource type="AudioStream" uid="uid://bve1yhqyrqp6g" path="res://Sound/SFX_Keyboard/SFX_Keyboard_010.wav" id="12_p3uyg"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_utgts"]
+streams_count = 10
+stream_0/stream = ExtResource("3_8cea2")
+stream_1/stream = ExtResource("4_0o4j2")
+stream_2/stream = ExtResource("5_soms1")
+stream_3/stream = ExtResource("6_3ht43")
+stream_4/stream = ExtResource("7_qmnk1")
+stream_5/stream = ExtResource("8_boygh")
+stream_6/stream = ExtResource("9_mwm7m")
+stream_7/stream = ExtResource("10_dabhx")
+stream_8/stream = ExtResource("11_vygpc")
+stream_9/stream = ExtResource("12_p3uyg")
 
 [node name="ComputerTyping" type="Node"]
 script = ExtResource("1_6tkmx")
 
 [node name="TextTyper" parent="." instance=ExtResource("2_pf55w")]
+
+[node name="SFX_Play" type="AudioStreamPlayer" parent="TextTyper"]
+stream = SubResource("AudioStreamRandomizer_utgts")
 
 [connection signal="sentenceCompleted" from="TextTyper" to="." method="finish"]

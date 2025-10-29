@@ -26,14 +26,25 @@ func _unhandled_input(event: InputEvent) -> void:
 			if !(key_event.keycode & KEY_SPECIAL):
 				var letter := String.chr(key_event.unicode)
 				
-				if letter.to_lower() == selectedWord[index].to_lower():
+				if letter.to_lower() == selectedWord[index]:
 					typedText.text = typedText.text.left(typedText.text.length() - 1)
-					typedText.text += (letter + "|")
+					typedText.text += (letter.to_lower() + "|")
 					index += 1
 					if index >= selectedWord.length():
 						sentenceEnded()
 					else:
 						sentenceProgressed.emit()
+						print(selectedWord[index])
+						
+				elif letter.to_upper() == selectedWord[index]:
+					typedText.text = typedText.text.left(typedText.text.length() - 1)
+					typedText.text += (letter.to_upper() + "|")
+					index += 1
+					if index >= selectedWord.length():
+						sentenceEnded()
+					else:
+						sentenceProgressed.emit()
+						$SFX_Play.play()
 						print(selectedWord[index])
 				
 				
