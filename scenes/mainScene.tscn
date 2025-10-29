@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://x448jmv0f1fe" path="res://art/DIODES ON/DIODE-ARROSOIR-ON.png" id="16_u82ob"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
-[ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
+[ext_resource type="PackedScene" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Texture2D" uid="uid://bvmg47sujqcpd" path="res://art/DIODES OFF/DIODE-MESSAGE-OFF.png" id="18_cebwr"]
 [ext_resource type="AudioStream" uid="uid://yqdcdflv07j1" path="res://Sound/SFX_Prayer/SFX_Prayer_Finished.wav" id="18_mqk1k"]
