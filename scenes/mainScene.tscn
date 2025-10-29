@@ -233,6 +233,10 @@ bg_color = Color(0, 1, 0, 1)
 
 [node name="MainScene" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Graphics"]
@@ -298,7 +302,7 @@ texture = ExtResource("14_xficm")
 [node name="Problems" type="Node" parent="."]
 
 [node name="Soif" parent="Problems" instance=ExtResource("3_twn0q")]
-unlock_time = 1
+unlock_time = 3
 reload_time = 30
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Soif"]
@@ -315,6 +319,7 @@ stream = ExtResource("15_cebwr")
 [node name="Triste" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 15
 reload_time = 30
+damage_per_second = 2
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Triste"]
 z_index = -2
@@ -330,6 +335,7 @@ stream = ExtResource("15_cebwr")
 [node name="Froid" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 30
 reload_time = 30
+damage_per_second = 3
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Froid"]
 z_index = -2
@@ -361,7 +367,9 @@ script = ExtResource("15_w72fx")
 stream = ExtResource("15_cebwr")
 
 [node name="Sombre" parent="Problems" instance=ExtResource("3_twn0q")]
+unlock_time = 60
 reload_time = 30
+damage_per_second = 4
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Sombre"]
 z_index = -2
@@ -377,6 +385,7 @@ stream = ExtResource("18_mqk1k")
 [node name="Faible" parent="Problems" instance=ExtResource("3_twn0q")]
 unlock_time = 75
 reload_time = 30
+damage_per_second = 5
 
 [node name="LED" type="AnimatedSprite2D" parent="Problems/Faible"]
 z_index = -2
@@ -511,6 +520,10 @@ autoplay = true
 [connection signal="stopped" from="Problems/Froid" to="Problems/Froid/LED" method="off"]
 [connection signal="started" from="Problems/Hack" to="Problems/Hack/Mask" method="on"]
 [connection signal="stopped" from="Problems/Hack" to="Problems/Hack/Mask" method="off"]
+[connection signal="started" from="Problems/Sombre" to="Problems/Sombre/LED" method="on"]
+[connection signal="stopped" from="Problems/Sombre" to="Problems/Sombre/LED" method="off"]
+[connection signal="started" from="Problems/Faible" to="Problems/Faible/LED" method="on"]
+[connection signal="stopped" from="Problems/Faible" to="Problems/Faible/LED" method="off"]
 
 [editable path="Problems/Soif"]
 [editable path="Problems/Triste"]
