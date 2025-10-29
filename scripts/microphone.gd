@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventKey and event.is_pressed():
+			$SFX_Play.play()
 			var key_event := event as InputEventKey
 			if !(key_event.keycode & KEY_SPECIAL):
 				var letter := String.chr(key_event.unicode)

@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://bhoadf58jjkt" path="res://art/PLANT/plante-mid.png" id="12_u2jin"]
 [ext_resource type="Texture2D" uid="uid://y0t175vo6wqw" path="res://art/PLANT/plante-morte.png" id="13_khoa4"]
 [ext_resource type="Script" uid="uid://kah3ggscduyh" path="res://scripts/plante_top.gd" id="14_xficm"]
-[ext_resource type="Texture2D" uid="uid://bby85lj62h6q6" path="res://art/PLANT/smiley-barredevie.png" id="14_xficm"]
 [ext_resource type="Texture2D" uid="uid://cbuvwqls6xsr4" path="res://art/DIODES OFF/DIODE-ARROSOIR-OFF.png" id="15_3tgni"]
 [ext_resource type="AudioStream" uid="uid://2b3fgc28erwm" path="res://Sound/SFX_Water/SFX_Water_PutDown.wav" id="15_cebwr"]
 [ext_resource type="Script" uid="uid://y101syr8i8jc" path="res://scripts/led.gd" id="15_w72fx"]
@@ -25,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://x448jmv0f1fe" path="res://art/DIODES ON/DIODE-ARROSOIR-ON.png" id="16_u82ob"]
 [ext_resource type="PackedScene" uid="uid://bk0s1e64hqd77" path="res://scenes/tools/bonnet.tscn" id="17_1s0h2"]
 [ext_resource type="PackedScene" uid="uid://di1ssyrwwp7as" path="res://scenes/tools/priere.tscn" id="17_f44mt"]
-[ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://b2j3kctlfme5" path="res://scenes/base_mechanics/keyboardMashing.tscn" id="17_w72fx"]
 [ext_resource type="PackedScene" uid="uid://dq4khbqrbmc84" path="res://scenes/tools/computerTyping.tscn" id="18_1s0h2"]
 [ext_resource type="Texture2D" uid="uid://bvmg47sujqcpd" path="res://art/DIODES OFF/DIODE-MESSAGE-OFF.png" id="18_cebwr"]
@@ -42,7 +40,6 @@
 [ext_resource type="Texture2D" uid="uid://ttub3kaa30gg" path="res://art/OUTLINES/chapelet-outline.png" id="23_x04a8"]
 [ext_resource type="Texture2D" uid="uid://doh3bf6psi0oj" path="res://art/DIODES OFF/DIODE-SANG-OFF.png" id="24_7hh7r"]
 [ext_resource type="Texture2D" uid="uid://bp25gm8wa2ktm" path="res://art/OUTLINES/perfusion-outline.png" id="24_k7hqw"]
-[ext_resource type="Texture2D" uid="uid://ccvwh6t802lds" path="res://art/PLANT/pot-plante-cassé.png" id="25_4bq3f"]
 [ext_resource type="Texture2D" uid="uid://bbborqvui2xlq" path="res://art/DIODES ON/DIODE-SANG-ON.png" id="25_hm6xc"]
 [ext_resource type="Texture2D" uid="uid://nuhmafm2dup0" path="res://art/OUTLINES/clavier-outline.png" id="27_nt7sb"]
 [ext_resource type="AudioStream" uid="uid://dscaiaugd4n8d" path="res://Sound/Amb/Amb_Clock.wav" id="29_3tgni"]
@@ -164,21 +161,25 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybfn7"]
+atlas = ExtResource("9_1s0h2")
+region = Rect2(0, 0, 1920, 1080)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_u2jin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": true,
 "name": &"off",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("25_4bq3f")
+"texture": SubResource("AtlasTexture_ybfn7")
 }],
-"loop": false,
+"loop": true,
 "name": &"on",
 "speed": 0.0
 }]
@@ -246,7 +247,7 @@ centered = false
 [node name="Perfusion" type="AnimatedSprite2D" parent="Graphics"]
 z_index = -4
 sprite_frames = SubResource("SpriteFrames_x04a8")
-animation = &"pleine"
+animation = &"vide"
 centered = false
 
 [node name="Arrosoir" type="Sprite2D" parent="Graphics"]
@@ -293,10 +294,6 @@ script = ExtResource("14_xficm")
 
 [node name="Timer" type="Timer" parent="Graphics/PlanteTop"]
 wait_time = 2.0
-
-[node name="SmileyBarredevie" type="Sprite2D" parent="Graphics"]
-position = Vector2(960, 539)
-texture = ExtResource("14_xficm")
 
 [node name="Problems" type="Node" parent="."]
 
@@ -355,7 +352,7 @@ damage_per_second = 0
 [node name="Mask" type="AnimatedSprite2D" parent="Problems/Hack"]
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_u2jin")
-animation = &"off"
+animation = &"on"
 autoplay = "off"
 centered = false
 script = ExtResource("15_w72fx")
@@ -403,6 +400,7 @@ linkedSolution = ExtResource("16_gg62s")
 polygon = PackedVector2Array(1764, 119, 1615, 176, 1617, 396, 1745, 474, 1916, 421, 1912, 197)
 
 [node name="Sprite2D" parent="Triggers/Arrosoir" index="1"]
+visible = true
 position = Vector2(-2, -5)
 texture = ExtResource("18_ybfn7")
 centered = false
@@ -470,9 +468,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 812.0
+offset_left = 811.0
 offset_top = 598.0
-offset_right = 1158.0
+offset_right = 1157.0
 offset_bottom = 644.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -514,6 +512,10 @@ autoplay = true
 [connection signal="stopped" from="Problems/Froid" to="Problems/Froid/LED" method="off"]
 [connection signal="started" from="Problems/Hack" to="Problems/Hack/Mask" method="on"]
 [connection signal="stopped" from="Problems/Hack" to="Problems/Hack/Mask" method="off"]
+[connection signal="started" from="Problems/Sombre" to="Problems/Sombre/LED" method="on"]
+[connection signal="stopped" from="Problems/Sombre" to="Problems/Sombre/LED" method="off"]
+[connection signal="started" from="Problems/Faible" to="Problems/Faible/LED" method="on"]
+[connection signal="stopped" from="Problems/Faible" to="Problems/Faible/LED" method="off"]
 
 [editable path="Problems/Soif"]
 [editable path="Problems/Triste"]

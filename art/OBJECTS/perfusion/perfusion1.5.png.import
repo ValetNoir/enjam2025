@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2t8sgc27awge"
-path="res://.godot/imported/perfusion-vide.png-6b921e39914844797a9f3df6f42f9b95.ctex"
+uid="uid://caiiitf1ql6vl"
+path="res://.godot/imported/perfusion1.5.png-db9b5710ea6793230aed242ea72311f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/OBJECTS/perfusion-vide.png"
-dest_files=["res://.godot/imported/perfusion-vide.png-6b921e39914844797a9f3df6f42f9b95.ctex"]
+source_file="res://art/OBJECTS/perfusion/perfusion1.5.png"
+dest_files=["res://.godot/imported/perfusion1.5.png-db9b5710ea6793230aed242ea72311f3.ctex"]
 
 [params]
 
